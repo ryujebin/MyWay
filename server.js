@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const app = express();
-const port = 32567
+const port = 3000
 require('dotenv').config()
 
 app.use(bodyParser.urlencoded({ extended: true }));

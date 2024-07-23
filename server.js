@@ -14,7 +14,7 @@ const db = mysql.createConnection({
     host: 'svc.sel4.cloudtype.app',
     user: 'root',
     password: '1234',
-    database: 'map_paths'
+    database: 'map_paths',
     port: 32567
 });
 

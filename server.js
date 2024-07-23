@@ -30,11 +30,6 @@ app.get('/', (req, res) => {
     res.render('map');
 });
 
-app.get('/', (req, res) => {
-    res.render('../views/map', {apiKey: process.env.KAKAO_API_KEY})
-  })
-
-
 app.post('/save_path', (req, res) => {
     const path = req.body.path;
     console.log('Received path:', path); // 경로 데이터 확인

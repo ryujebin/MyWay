@@ -15,6 +15,7 @@ const db = mysql.createConnection({
     user: 'root',
     password: '1234',
     database: 'map_paths'
+    port: 32567
 });
 
 db.connect((err) => {

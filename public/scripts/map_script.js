@@ -267,7 +267,7 @@ document.getElementById('savePath').addEventListener('click', function() {
         });
 
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "/save_path", true);
+        xhr.open("POST", "/api/paths/save_path", true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
@@ -283,7 +283,7 @@ document.getElementById('savePath').addEventListener('click', function() {
 // 경로 불러오기 버튼 이벤트 리스너
 document.getElementById('loadPaths').addEventListener('click', function() {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "/load_paths", true);
+    xhr.open("GET", "/api/paths/load_paths", true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var paths = JSON.parse(xhr.responseText);

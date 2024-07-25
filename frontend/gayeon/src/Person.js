@@ -57,8 +57,8 @@ function Person() {
           </ul>
         </nav>
         <hr style={{ width: '90%' }} />
-        <section style={{ margin: '80px 0px' }}>
-          <hr style={{ width: '20%' }} />
+        <section style={{ margin: '150px 0px' }}>
+          <hr style={{ width: '25%' }} />
           <section className="person_information">
             <div className="settle">
               <span>프로필</span>
@@ -67,7 +67,7 @@ function Person() {
               <button onClick={() => handleClick('/Setting.js')}>프로필 사진 변경</button>
             </div>
           </section>
-          <hr style={{ width: '20%' }} />
+          <hr style={{ width: '25%' }} />
           <section className="person_information">
             <div className="settle">
               <span>비밀번호</span>
@@ -81,7 +81,7 @@ function Person() {
               />
             </div>
           </section>
-          <hr style={{ width: '20%' }} />
+          <hr style={{ width: '25%' }} />
           <section className="person_information">
             <div className="settle">
               <span>이메일</span>
@@ -95,7 +95,7 @@ function Person() {
               />
             </div>
           </section>
-          <hr style={{ width: '20%' }} />
+          <hr style={{ width: '25%' }} />
           <section className="person_information">
             <div className="settle">
               <span>전화번호</span>
@@ -109,7 +109,7 @@ function Person() {
               />
             </div>
           </section>
-          <hr style={{ width: '20%' }} />
+          <hr style={{ width: '25%' }} />
           <div className="centered-button">
             <button onClick={handleSaveChanges}>변경사항 저장</button>
           </div>

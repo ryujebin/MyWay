@@ -32,19 +32,19 @@ function Service() {
         <div className="QandA_box">
           <h2 style={{ fontSize: '25px' }}>자주 묻는 질문</h2>
           <ul className="nav-list" style={{ listStyleType: 'none' }}>
-            <li><Link to="/QandA" className="QandA_list">산책로 등록을 하면 뭐가 좋나요 ?</Link></li>
+            <li><Link to="/QandA1" className="QandA_list">산책로 등록을 하면 뭐가 좋나요 ?</Link></li>
             <hr />
-            <li><Link to="/QandA" className="QandA_list">제휴업체 사용은 어떻게 하나요 ?</Link></li>
+            <li><Link to="/QandA2" className="QandA_list">제휴업체 사용은 어떻게 하나요 ?</Link></li>
             <hr />
-            <li><Link to="/QandA" className="QandA_list">산책로 등록 시 사진을 꼭 첨부해야 하나요 ?</Link></li>
+            <li><Link to="/QandA3" className="QandA_list">산책로 등록 시 사진을 꼭 첨부해야 하나요 ?</Link></li>
             <hr />
-            <li><Link to="/QandA" className="QandA_list">GPS 기능이 잘 안돼요 !</Link></li>
+            <li><Link to="/QandA4" className="QandA_list">GPS 기능이 잘 안돼요 !</Link></li>
             <hr />
           </ul>
         </div>
       <div className="register_button_container">
         <span style={{margin:"15px"}}>도움이 필요하신가요 ?</span>
-        <Link to="/NewWalkTrail.js" className="button-box">문의하기</Link>
+        <Link to="/QandA" className="button-box">문의하기</Link>
       </div>
       </main>
       <footer>

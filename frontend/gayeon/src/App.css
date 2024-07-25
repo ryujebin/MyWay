@@ -113,6 +113,7 @@ main {
 }
 
 .home_logo {
+  width:10px;
   font-size: 24px;
   font-weight: bold;
   display: flex;
@@ -120,10 +121,14 @@ main {
   margin-left: 50px;
 }
 
+.logo_image {
+  width: 250px;
+}
+
 .tap_button1, .tap_button2 {
   text-decoration: none;
   color: black;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 nav ul {
@@ -164,16 +169,18 @@ nav .nav-list {
 }
 
 .person_information {
+  width : 30%;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   align-items: center;
-  margin: 5px 750px;
+  flex: 1;
+  margin: 0 auto;
 }
 
 .settle {
-  padding: 20px;
-  margin: 5px;
+  margin-left: 21%;
+  padding: 10px;
   text-align: flex-start;
   color: black;
   font-size: 20px;
@@ -181,7 +188,7 @@ nav .nav-list {
 }
 
 .set {
-  padding: 20px;
+  padding: 10px;
   text-align: flex-end;
   color: black;
   font-size: 20px;
@@ -331,6 +338,41 @@ nav .nav-list {
   text-decoration: none;
   color: black;
   font-size: 20px;
+}
+
+.asking-box-style {
+  border: 2px solid rgb(176, 176, 176); /* 검은색 실선 테두리 */
+  padding: 20px;
+  gap: 10px;
+  margin: 5px 300px;
+}
+
+.ask {
+  font-size: 30px; /* 글자 크기 키움 */
+  font-weight: bold; /* 글자 굵게 */
+}
+.answer {
+  font-size: 23px; /* 글자 크기 키움 */
+}
+
+.form-style {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-style, .textarea-style {
+  width: 90%;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.asking-button-style:hover {
+  background-color: #45a049;
 }
 
 footer {

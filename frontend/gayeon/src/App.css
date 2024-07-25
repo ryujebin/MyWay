@@ -1,0 +1,348 @@
+.login-container {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+  margin: 100px auto; /* 중앙 정렬을 위해 추가 */
+}
+
+.header-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="text"], input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-container {
+  margin: 0 10px; /* 좌우 여백 10px 추가 */
+}
+
+.new-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 10px;
+  width : 70%;
+}
+
+.login-button {
+  background-color: #001f3f;
+  color: white;
+  width: 48%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.register-button {
+  background-color: #d9e8fc;
+  color: #001f3f;
+  width: 48%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.footer-button {
+  background: none;
+  border: none;
+  color: #001f3f;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.creator-button {
+  background-color: #f0f0f0;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+
+.do-hyeon-regular {
+  font-family: "Do Hyeon", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: inherit; /* 기본 텍스트 색상과 동일하게 설정 */
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px 20px;
+  font-family: "Do Hyeon", sans-serif;
+}
+
+main {
+  font-family: "Do Hyeon", sans-serif;
+}
+
+.home_logo {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.tap_button1, .tap_button2 {
+  text-decoration: none;
+  color: black;
+  font-size: 30px;
+}
+
+nav ul {
+  list-style: none;
+  margin-right: 20px;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li {
+  display: flex;
+  align-items: center;
+}
+
+.banner_image {
+  width: 100%;
+}
+
+.list {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.clicked {
+  color: rgb(8, 0, 255);
+  text-decoration: underline;
+}
+
+nav .nav-list {
+  list-style: none;
+  margin-left: 100px;
+  margin-top: 20px;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+}
+
+.person_information {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin: 5px 750px;
+}
+
+.settle {
+  padding: 20px;
+  margin: 5px;
+  text-align: flex-start;
+  color: black;
+  font-size: 20px;
+  width: 80px;
+}
+
+.set {
+  padding: 20px;
+  text-align: flex-end;
+  color: black;
+  font-size: 20px;
+  text-decoration: none; /* 밑줄 제거 */
+}
+
+/* 변경사항 저장 버튼을 가운데 정렬 */
+.centered-button {
+  padding: 20px;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.centered-button button {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.walk_trail {
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 5px 200px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.box1 {
+  padding: 100px 20px;
+  margin: 10px;
+  font-size: 20px;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.box2 {
+  margin: 3px;
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width:100%;
+}
+
+.setting_button_container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-end; /* 오른쪽에 버튼 정렬 */
+  justify-content: center; /* 중앙에 버튼 정렬 */
+  padding-right: 10px
+}
+
+.setting_button {
+  font-family: "Gowun Batang", serif;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 5px;
+  padding: 5px 10px;
+  font-family: 'Nanum Gothic Coding', monospace;
+}
+
+/* 버튼 스타일 */
+.set button {
+  /*background-color: #4CAF50;  Green */
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.set button:hover {
+  background-color: #6195ff;
+}
+
+/* 비밀번호 입력 스타일 */
+.set input {
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.register_button_container {
+
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.button-box {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-family: 'Nanum Gothic Coding', monospace;
+  background: none;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+.register_button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-family: 'Nanum Gothic Coding', monospace;
+  background: none;
+  border: 2px solid #000;
+  cursor: pointer;
+}
+
+
+.register_button:hover {
+  background-color: #f0f0f0;
+}
+
+.walk_trail_image {
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.walk_trail_body {
+  flex:1;
+  padding: 10px;
+  line-height: 1.2;
+}
+
+.QandA_box {
+  text-align: flex-start;
+  width: auto;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.QandA_list {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.creator-button {
+  font-family: "Gowun Batang", serif;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}

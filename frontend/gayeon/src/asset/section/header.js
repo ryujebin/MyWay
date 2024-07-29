@@ -13,13 +13,16 @@ function Header() {
               산책로 <span className="arrow">v</span>
             </a>
             <ul className="dropdown-menu">
-              <li><a href="#!">산책로</a></li>
-              <li><a href="#!">산책로 등록</a></li>
+              <li><Link to="/walktrail">산책로</Link></li>
+              <li><Link to="/newwalktrail">산책로 등록</Link></li>
               <li><a href="#!">산책로 관리</a></li>
             </ul>
           </li>
           <li>
             <Link to="/community">커뮤니티</Link>
+          </li>
+          <li>
+            <Link to="/login">로그인</Link>
           </li>
         </ul>
       </nav>

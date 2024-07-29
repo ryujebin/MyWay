@@ -50,17 +50,6 @@ function QandA1() {
     <div>
       <Header />
       <main>
-        <div className="banner_bar">
-          <img src="/images/banner.png" className="banner_image" alt="Banner" />
-        </div>
-        <nav>
-          <ul className="nav-list">
-            <li><Link to="/person" className="list">개인정보 관리</Link></li>
-            <li><Link to="/walktrail" className="list">산책로 관리</Link></li>
-            <li><Link to="/service" className="list">고객센터</Link></li>
-          </ul>
-        </nav>
-        <hr style={{ width: '90%'}}/>
         <section class="asking-box-style">
             <div>
                 <p class="ask">Q. 산책로 등록을 하면 뭐가 좋나요 ?</p>
@@ -81,17 +70,6 @@ function QandA2() {
     <div>
       <Header />
       <main>
-        <div className="banner_bar">
-          <img src="/images/banner.png" className="banner_image" alt="Banner" />
-        </div>
-        <nav>
-          <ul className="nav-list">
-            <li><Link to="/person" className="list">개인정보 관리</Link></li>
-            <li><Link to="/walktrail" className="list">산책로 관리</Link></li>
-            <li><Link to="/service" className="list">고객센터</Link></li>
-          </ul>
-        </nav>
-        <hr style={{ width: '90%'}}/>
         <section class="asking-box-style">
             <div>
                 <p class="ask">Q. 제휴업체 사용은 어떻게 하나요 ?</p>
@@ -112,17 +90,6 @@ function QandA3() {
     <div>
       <Header />
       <main>
-        <div className="banner_bar">
-          <img src="/images/banner.png" className="banner_image" alt="Banner" />
-        </div>
-        <nav>
-          <ul className="nav-list">
-            <li><Link to="/person" className="list">개인정보 관리</Link></li>
-            <li><Link to="/walktrail" className="list">산책로 관리</Link></li>
-            <li><Link to="/service" className="list">고객센터</Link></li>
-          </ul>
-        </nav>
-        <hr style={{ width: '90%'}}/>
         <section class="asking-box-style">
             <div>
                 <p class="ask">Q. 산책로 등록 시 사진을 꼭 첨부해야 하나요 ?</p>
@@ -143,17 +110,6 @@ function QandA4() {
     <div>
       <Header />
       <main>
-        <div className="banner_bar">
-          <img src="/images/banner.png" className="banner_image" alt="Banner" />
-        </div>
-        <nav>
-          <ul className="nav-list">
-            <li><Link to="/person" className="list">개인정보 관리</Link></li>
-            <li><Link to="/walktrail" className="list">산책로 관리</Link></li>
-            <li><Link to="/service" className="list">고객센터</Link></li>
-          </ul>
-        </nav>
-        <hr style={{ width: '90%'}}/>
         <section class="asking-box-style">
             <div>
                 <p class="ask">Q. GPS 기능이 잘 안돼요 !</p>

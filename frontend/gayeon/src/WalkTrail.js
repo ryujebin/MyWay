@@ -103,7 +103,7 @@ function WalkTrail() {
             </div>
           </section>
         </section>
-        <div className="register_button_container">
+        <div className="register_button_container"> 
           <Link to="/newwalktrail" className="button-box">산책로 등록 바로가기</Link>
         </div>
       </main>

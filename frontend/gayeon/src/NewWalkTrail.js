@@ -1,6 +1,5 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
 import Header from './asset/section/header';
 import Footer from './asset/section/footer';
 

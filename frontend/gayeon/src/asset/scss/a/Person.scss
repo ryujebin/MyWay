@@ -1,0 +1,98 @@
+.nav-list {
+  list-style: none;
+  margin-left: 100px;
+  margin-top: 20px;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+  }
+
+  .tap_button1, .tap_button2 {
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+  }
+
+  .list {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+main {
+  font-family: "Do Hyeon", sans-serif;
+
+  .banner_image {
+    width: 100%;
+  }
+
+  hr {
+    width: 90%;
+  }
+
+  section {
+
+    hr {
+      width: 25%;
+    }
+
+    .person_information {
+      width: 40%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      flex: 1;
+      margin: 0 auto;
+
+      .settle {
+        margin-left: 21%;
+        padding: 10px;
+        text-align: flex-start;
+        color: black;
+        font-size: 20px;
+        width: 80px;
+      }
+
+      .set {
+        padding: 10px;
+        text-align: flex-end;
+        color: black;
+        font-size: 20px;
+        text-decoration: none; /* 밑줄 제거 */
+
+        button {
+          border: none;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          margin: 4px 2px;
+          cursor: pointer;
+          border-radius: 5px;
+        }
+
+        input {
+          padding: 10px;
+          margin-right: 10px;
+          border-radius: 10px;
+          border: 1px solid #ccc;
+        }
+      }
+    }
+
+    .centered-button {
+      padding: 20px;
+      text-align: center;
+      color: black;
+      font-size: 20px;
+      text-decoration: none;
+
+      button {
+        margin: 0 auto;
+        display: inline-block;
+      }
+    }
+  }
+}
+  

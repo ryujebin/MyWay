@@ -1,0 +1,104 @@
+/* 공통 스타일 */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+  
+a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: inherit; /* 기본 텍스트 색상과 동일하게 설정 */
+}
+  
+  /* 홈 페이지 스타일 */
+.home_logo {
+  width: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+
+  .logo_image {
+    width: 250px;
+  }
+}
+  
+  /* 헤더 스타일 */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    font-family: "Do Hyeon", sans-serif;
+  
+    nav {
+      ul {
+        list-style: none;
+        margin-right: 20px;
+        padding: 0;
+        display: flex;
+        gap: 30px;
+  
+        li {
+          display: flex;
+          align-items: center;
+        }
+      }
+  
+      .nav-list {
+        list-style: none;
+        margin-left: 100px;
+        margin-top: 20px;
+        padding: 0;
+        display: flex;
+        gap: 30px;
+      }
+  
+      .tap_button1, .tap_button2 {
+        text-decoration: none;
+        color: black;
+        font-size: 25px;
+      }
+  
+      .list {
+        text-decoration: none;
+        color: black;
+        font-size: 20px;
+      }
+  
+      .clicked {
+        color: rgb(8, 0, 255);
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  /* 메인 스타일 */
+  main {
+    font-family: "Do Hyeon", sans-serif;
+  
+    .banner_image {
+      width: 100%;
+    }
+  
+    hr {
+      width: 90%;
+    }
+  }
+  
+  /* 푸터 스타일 */
+  footer {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  
+    .creator-button {
+      font-family: "Gowun Batang", serif;
+      color: rgb(0, 0, 0);
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  }
+  

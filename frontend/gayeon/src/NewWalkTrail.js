@@ -1,23 +1,22 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import './App.css';
+import Header from './asset/section/header';
+import Footer from './asset/section/footer';
+
 
 function NewWalkTrail() {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  
+  const onSubmit = (data) => {
+    console.log(data);
+    // 서버에 데이터를 전송하는 로직을 추가하세요.
+  };
+
   return (
     <div>
-      <header>
-        <div className="home_logo">
-          <img src="/images/my_way_logo.png" className="logo_image" alt="Logo" />
-        </div>
-        <nav>
-          <ul className="nav-list">
-            <li><Link to="/walktrail" className="tap_button1">산책로</Link></li>
-            <li><Link to="/community" className="tap_button1">커뮤니티</Link></li>
-            <li><Link to="/person" className="tap_button2">마이페이지</Link></li>
-          </ul>
-        </nav>
-      </header>
-      <main>
+      <Header />
+      <main>      
         <div className="banner_bar">
           <img src="/images/banner.png" className="banner_image" alt="Banner" />
         </div>
@@ -29,10 +28,38 @@ function NewWalkTrail() {
           </ul>
         </nav>
         <hr />
+        <section className="main-container">  
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <label htmlFor="title">제목</label>
+            <input
+              id="title"
+              {...register('title', { required: '제목은 필수 입력 항목입니다.' })}
+            />
+            {errors.title && <p>{errors.title.message}</p>}
+          </div>
+          <div>
+            <label htmlFor="description">내용</label>
+            <textarea
+              id="description"
+              {...register('description', { required: '내용은 필수 입력 항목입니다.' })}
+            />
+            {errors.description && <p>{errors.description.message}</p>}
+          </div>
+          <div>
+            <label htmlFor="image">사진</label>
+            <input
+              type="file"
+              id="image"
+              {...register('image', { required: '사진은 필수 입력 항목입니다.' })}
+            />
+            {errors.image && <p>{errors.image.message}</p>}
+          </div>
+          <button type="submit">등록</button>
+        </form>
+        </section>
       </main>
-      <footer>
-        <button className="creator-button">제작자</button>
-      </footer>
+      <Footer />
     </div>
   );
 }

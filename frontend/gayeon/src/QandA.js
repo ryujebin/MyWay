@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './App.css';
+import Header from './asset/section/header';
+import Footer from './asset/section/footer';
 
 function QandA() {
   const [title, setTitle] = useState('');
@@ -23,18 +24,7 @@ function QandA() {
 
   return (
     <div>
-      <header>
-        <div className="home_logo">
-          <img src="/images/my_way_logo.png" className="logo_image" alt="Logo"/>
-        </div>
-        <nav>
-          <ul className="nav-list">
-            <li><Link to="/walktrail" className="tap_button1">산책로</Link></li>
-            <li><Link to="/community" className="tap_button1">커뮤니티</Link></li>
-            <li><Link to="/person" className="tap_button2">마이페이지</Link></li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
       <main>
         <div className="banner_bar">
           <img src="/images/banner.png" className="banner_image" alt="Banner" />
@@ -61,9 +51,7 @@ function QandA() {
           </form>
         </section>
       </main>
-      <footer>
-        <button className="creator-button">제작자</button>
-      </footer>
+      <Footer />
     </div>
   );
 }
@@ -71,18 +59,7 @@ function QandA() {
 function QandA1() {
   return (
     <div>
-      <header>
-        <div className="home_logo">
-          <img src="/images/my_way_logo.png" className="logo_image" alt="Logo"/>
-        </div>
-        <nav>
-          <ul className="nav-list">
-            <li><Link to="/walktrail" className="tap_button1">산책로</Link></li>
-            <li><Link to="/community" className="tap_button1">커뮤니티</Link></li>
-            <li><Link to="/person" className="tap_button2">마이페이지</Link></li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
       <main>
         <div className="banner_bar">
           <img src="/images/banner.png" className="banner_image" alt="Banner" />
@@ -105,9 +82,7 @@ function QandA1() {
             </div>
         </section>
       </main>
-      <footer>
-        <button className="creator-button">제작자</button>
-      </footer>
+      <Footer />
     </div>
   );
 }
@@ -115,18 +90,7 @@ function QandA1() {
 function QandA2() {
   return (
     <div>
-      <header>
-        <div className="home_logo">
-          <img src="/images/my_way_logo.png" className="logo_image" alt="Logo"/>
-        </div>
-        <nav>
-          <ul className="nav-list">
-            <li><Link to="/walktrail" className="tap_button1">산책로</Link></li>
-            <li><Link to="/community" className="tap_button1">커뮤니티</Link></li>
-            <li><Link to="/person" className="tap_button2">마이페이지</Link></li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
       <main>
         <div className="banner_bar">
           <img src="/images/banner.png" className="banner_image" alt="Banner" />
@@ -149,9 +113,7 @@ function QandA2() {
             </div>
         </section>
       </main>
-      <footer>
-        <button className="creator-button">제작자</button>
-      </footer>
+      <Footer />
     </div>
   );
 }
@@ -159,18 +121,7 @@ function QandA2() {
 function QandA3() {
   return (
     <div>
-      <header>
-        <div className="home_logo">
-          <img src="/images/my_way_logo.png" className="logo_image" alt="Logo"/>
-        </div>
-        <nav>
-          <ul className="nav-list">
-            <li><Link to="/walktrail" className="tap_button1">산책로</Link></li>
-            <li><Link to="/community" className="tap_button1">커뮤니티</Link></li>
-            <li><Link to="/person" className="tap_button2">마이페이지</Link></li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
       <main>
         <div className="banner_bar">
           <img src="/images/banner.png" className="banner_image" alt="Banner" />
@@ -193,9 +144,7 @@ function QandA3() {
             </div>
         </section>
       </main>
-      <footer>
-        <button className="creator-button">제작자</button>
-      </footer>
+      <Footer />
     </div>
   );
 }
@@ -203,18 +152,7 @@ function QandA3() {
 function QandA4() {
   return (
     <div>
-      <header>
-        <div className="home_logo">
-          <img src="/images/my_way_logo.png" className="logo_image" alt="Logo"/>
-        </div>
-        <nav>
-          <ul className="nav-list">
-            <li><Link to="/walktrail" className="tap_button1">산책로</Link></li>
-            <li><Link to="/community" className="tap_button1">커뮤니티</Link></li>
-            <li><Link to="/person" className="tap_button2">마이페이지</Link></li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
       <main>
         <div className="banner_bar">
           <img src="/images/banner.png" className="banner_image" alt="Banner" />
@@ -237,9 +175,7 @@ function QandA4() {
             </div>
         </section>
       </main>
-      <footer>
-        <button className="creator-button">제작자</button>
-      </footer>
+      <Footer />
     </div>
   );
 }

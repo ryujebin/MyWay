@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './App.css';
 
-function Home() {
+function Setting() {
   return (
     <div>
       <header>
@@ -30,11 +29,9 @@ function Home() {
         </nav>
         <hr />
       </main>
-      <footer>
-        <button className="creator-button">제작자</button>
-      </footer>
+      <footer />
     </div>
   );
 }
 
-export default Home;
+export default Setting;

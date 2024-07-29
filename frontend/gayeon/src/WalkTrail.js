@@ -1,22 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './App.css';
+import Header from './asset/section/header';
+import Footer from './asset/section/footer';
 
 function WalkTrail() {
   return (
     <div>
-      <header>
-        <div className="home_logo">
-          <img src="images/my_way_logo.png" className="logo_image" alt="Logo" />
-        </div>
-        <nav>
-          <ul className="nav-list">
-            <li><Link to="/walktrail" className="tap_button1">산책로</Link></li>
-            <li><Link to="/community" className="tap_button1">커뮤니티</Link></li>
-            <li><Link to="/person" className="tap_button2">마이페이지</Link></li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
       <main>
         <div className="banner_bar">
           <img src="images/banner.png" className="banner_image" alt="Banner" />
@@ -29,6 +19,7 @@ function WalkTrail() {
           </ul>
         </nav>
         <hr style={{ width: '90%' }} />
+        
         <section className="walk_trail">
           <div className="box1">나의 산책로 목록</div>
           <section className="post">
@@ -125,12 +116,10 @@ function WalkTrail() {
           </section>
         </section>
         <div className="register_button_container">
-          <Link to="/NewWalkTrail.js" className="button-box">산책로 등록 바로가기</Link>
+          <Link to="/newwalktrail" className="button-box">산책로 등록 바로가기</Link>
         </div>
       </main>
-      <footer>
-        <button className="creator-button">LIKE UNIV.SCNU 12TH 워크홀릭</button>
-      </footer>
+      <Footer />
     </div>
   );
 }

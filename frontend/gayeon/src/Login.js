@@ -3,9 +3,6 @@ import React from 'react';
 function Login() {
   return (
     <div className="login-container">
-      <header className="header-logo">
-        <img src="/images/my_way_logo.png" style={{width:"200px"}} alt="Logo" />
-      </header>
       <main>
         <div className="input-container">
           <input type="text" placeholder="아이디" />

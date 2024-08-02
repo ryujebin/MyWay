@@ -1,7 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import HomePage from "./HomePage";
-import CommunityPage from "./CommunityPage";
+import HomePage from "./components/HomePage";
+import CommunityPage from "./components/CommunityPage";
+import "./App.scss";
 
 function App() {
   return (

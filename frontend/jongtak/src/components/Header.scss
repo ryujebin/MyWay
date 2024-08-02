@@ -1,0 +1,106 @@
+// src/components/Header.scss
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+
+  .left-container {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      margin-right: 30px;
+
+      img {
+        max-height: 50px;
+        width: auto;
+        margin-left: 50px;
+      }
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+
+        li {
+          position: relative;
+
+          a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+          }
+
+          .dropdown .arrow {
+            margin-left: 5px;
+          }
+
+          .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            list-style: none;
+            padding: 10px 0;
+            margin: 0;
+            display: none;
+            flex-direction: column;
+            z-index: 1;
+          }
+
+          &:hover .dropdown-menu {
+            display: flex;
+          }
+
+          .dropdown-menu li {
+            padding: 10px 20px;
+
+            a {
+              color: black;
+              text-decoration: none;
+              white-space: nowrap;
+
+              &:hover {
+                background-color: #f0f0f0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mypage-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    color: #6c757d;
+    text-decoration: none;
+
+    img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 5px;
+    }
+
+    span {
+      font-size: 14px;
+    }
+  }
+}

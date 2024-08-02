@@ -1,0 +1,265 @@
+// 변수 정의
+$search-bg-color: #F4F4F4;
+$border-color: #ddd;
+$category-bg-color: #FFFFFF;
+$category-active-bg-color: #007bff;
+$text-color: #007bff;
+$button-hover-bg-color: #007bff;
+$button-hover-color: #fff;
+$dot-size: 12px;
+$overlay-bg-color: #fff;
+$overlay-border-color: #ccc;
+$overlay-shadow-color: #888;
+$font-size-small: 12px;
+$font-size-medium: 16px;
+$font-size-large: 14px;
+$category-btn-width: 93px;
+$category-btn-height: 40px;
+
+// 검색 컨테이너
+.search-container {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 20px;
+  padding: 20px;
+  width: 90%;
+  max-width: 700px;
+  z-index: 10;
+
+  .search-input-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: $search-bg-color;
+    border: 1px solid $border-color;
+    border-radius: 12px;
+    padding: 0 10px;
+    width: 100%;
+    height: 58px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+
+    .search-icon, .close-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .search-icon {
+      margin-right: 10px;
+    }
+
+    .close-icon {
+      margin-left: auto;
+      cursor: pointer;
+    }
+
+    .search-input {
+      flex: 1;
+      border: none;
+      background: none;
+      font-size: $font-size-medium;
+      outline: none;
+      height: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  .category-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    .category-btn {
+      display: flex;
+      align-items: center;
+      padding: 5px 10px;
+      background-color: $category-bg-color;
+      border: 1px solid $border-color;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      flex: 1;
+      justify-content: center;
+      margin: 0 5px;
+      width: $category-btn-width;
+      height: $category-btn-height;
+
+      img {
+        margin-right: 10px;
+        width: 25px;
+        height: 25px;
+      }
+
+      &.on {
+        background-color: $category-active-bg-color;
+        color: $overlay-bg-color;
+      }
+    }
+  }
+}
+
+// 기타 버튼들
+.bottom-container {
+  padding-bottom: 30px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  z-index: 10;
+
+  .bottom-buttons-container {
+    background-color: $overlay-bg-color;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 300px;
+    height: 120px;
+    border-left: 2px solid $border-color;
+
+    .bottom-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      .bottom-button {
+        background-color: $overlay-bg-color;
+        color: $text-color;
+        border: none;
+        font-size: $font-size-large;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 300px;
+        height: 60px;
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
+
+        &:focus {
+          outline: none;
+        }
+
+        &-start-end {
+          border: none;
+          border-bottom: 2px solid #EEEEEE;
+
+          &:hover {
+            background-color: $button-hover-bg-color;
+            color: $button-hover-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 메뉴 버튼들
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .menu-button {
+    background-color: $overlay-bg-color;
+    border: none;
+    color: $text-color;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: $font-size-large;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
+    &:hover {
+      background-color: $button-hover-bg-color;
+      color: $button-hover-color;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+// 거리 표시
+.dot {
+  overflow: hidden;
+  float: left;
+  width: $dot-size;
+  height: $dot-size;
+  background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png');
+}
+
+.dotOverlay {
+  position: relative;
+  bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid $overlay-border-color;
+  border-bottom: 2px solid $border-color;
+  float: left;
+  font-size: $font-size-small;
+  padding: 5px;
+  background: $overlay-bg-color;
+
+  &:nth-of-type(n) {
+    border: 0;
+    box-shadow: 0px 1px 2px $overlay-shadow-color;
+  }
+
+  .number {
+    font-weight: bold;
+    color: #ee6152;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    margin-left: -6px;
+    left: 50%;
+    bottom: -8px;
+    width: 11px;
+    height: 8px;
+    background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white_small.png');
+  }
+
+  .distanceInfo {
+    position: relative;
+    top: 5px;
+    left: 5px;
+    list-style: none;
+    margin: 0;
+
+    .label {
+      display: inline-block;
+      width: 50px;
+    }
+  }
+}

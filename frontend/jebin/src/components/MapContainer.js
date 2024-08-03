@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import './MapContainer.scss'; // 추가된 CSS 파일
 import searchIcon from './icons/search-icon.png'; // 돋보기 아이콘 추가
 import closeIcon from './icons/close-icon.png'; // x 버튼 추가
 import restroomIcon from './icons/restroom.png'; // 화장실 아이콘 추가

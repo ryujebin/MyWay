@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./CommunityPage.scss";
-import logo from "./images/logo.PNG";
 import bannerImage from "./images/banner.PNG";
-import googlePlay from "./images/googleplay.PNG";
-import appStore from "./images/appstore.PNG";
-import instagram from "./images/instagram.PNG";
-import youtube from "./images/youtube.PNG";
+
 
 const CommunityPage = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("notice");
   const [expandedIndex, setExpandedIndex] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
 
   const toggleExpanded = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
@@ -155,14 +155,14 @@ const CommunityPage = () => {
                 </div>
               )}
               <div className="post-item" onClick={() => toggleExpanded(5)}>
-                <h3>여행 중 만난 아름다운 길</h3>
-                <span className="views">조회수: 345</span>
+                <h3>산책로 청소 활동 후기</h3>
+                <span className="views">조회수: 145</span>
               </div>
               {expandedIndex === 5 && (
                 <div className="post-details">
                   <p>
-                    최근 여행 중에 만난 길이 정말 아름다웠습니다. 사진과 함께
-                    공유할게요!
+                    지난 주말에 산책로 청소 활동에 참여했어요. 많은 분들이 함께
+                    해주셔서 산책로가 깨끗해졌어요!
                   </p>
                 </div>
               )}
@@ -171,35 +171,32 @@ const CommunityPage = () => {
           {activeTab === "qa" && (
             <div className="qa-content">
               <div className="qa-item" onClick={() => toggleExpanded(6)}>
-                <h3>산책로 추천 부탁드립니다.</h3>
-                <span className="views">조회수: 123</span>
+                <h3>새로운 산책로 등록은 어떻게 하나요?</h3>
+                <span className="views">조회수: 104</span>
               </div>
               {expandedIndex === 6 && (
                 <div className="qa-details">
-                  <p>
-                    산책로 추천해주실 수 있나요? 새로운 곳을 찾고 있어서요.
-                  </p>
+                  <p>산책로 등록을 위해 어떤 절차를 거쳐야 하나요?</p>
                 </div>
               )}
               <div className="qa-item" onClick={() => toggleExpanded(7)}>
-                <h3>산책 중 주의할 점</h3>
-                <span className="views">조회수: 456</span>
+                <h3>산책로 관리 방법이 궁금해요</h3>
+                <span className="views">조회수: 87</span>
               </div>
               {expandedIndex === 7 && (
                 <div className="qa-details">
-                  <p>
-                    산책 중 주의할 점이나 팁이 있으면 공유해 주세요.
-                  </p>
+                  <p>산책로를 자주 이용하는데, 관리는 어떻게 하면 좋을까요?</p>
                 </div>
               )}
               <div className="qa-item" onClick={() => toggleExpanded(8)}>
-                <h3>산책로 관련 법규</h3>
-                <span className="views">조회수: 789</span>
+                <h3>산책로 안전 관련 문의</h3>
+                <span className="views">조회수: 123</span>
               </div>
               {expandedIndex === 8 && (
                 <div className="qa-details">
                   <p>
-                    산책로와 관련된 법규나 규정에 대해 알고 싶습니다.
+                    산책로를 이용할 때 안전하게 이용할 수 있는 방법이
+                    궁금합니다.
                   </p>
                 </div>
               )}
@@ -207,29 +204,6 @@ const CommunityPage = () => {
           )}
         </div>
       </div>
-      <footer className="footer">
-        <div className="footer-content">
-          <div className="footer-logo">
-            <img src={logo} alt="MyWay" />
-          </div>
-          <div className="footer-links">
-            <a href="https://play.google.com/store/apps/details?id=com.example.app">
-              <img src={googlePlay} alt="Google Play" />
-            </a>
-            <a href="https://apps.apple.com/us/app/id1234567890">
-              <img src={appStore} alt="App Store" />
-            </a>
-          </div>
-          <div className="footer-social">
-            <a href="https://www.instagram.com/example">
-              <img src={instagram} alt="Instagram" />
-            </a>
-            <a href="https://www.youtube.com/example">
-              <img src={youtube} alt="YouTube" />
-            </a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };

@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Person() {
-  const navigate = useNavigate();
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [profileImage, setProfileImage] = useState(null);
-
-  const handleClick = (path) => {
-    navigate(path);
-  };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
@@ -39,6 +34,18 @@ function Person() {
   return (
     <div>
       <main>
+        <section class="banner-bar">
+          <h1 className='banner-words'>' 산책이 일상으로 '</h1>
+          <span class="mypage">MYPAGE</span>
+        </section>
+        <nav>
+          <ul className="nav-list">
+            <li><Link to="/person" className="list">개인정보 관리</Link></li>
+            <li><Link to="/walktrail" className="list">산책로 관리</Link></li>
+            <li><Link to="/service" className="list">고객센터</Link></li>
+          </ul>
+        </nav>
+        <hr />
         <section style={{ margin: '40px 0px' }}>
           <hr style={{ width: '30%' }} />
           <section className="person_information">

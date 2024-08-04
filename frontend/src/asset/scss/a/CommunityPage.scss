@@ -132,16 +132,16 @@
   }
 
   .search-container {
-    width: calc(100% - 40px);
-    margin: 10px auto;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Center the search bar */
     padding: 20px 0;
     position: relative;
 
     .search-input {
-      width: 100%;
-      padding: 10px 20px;
+      width: 100%; /* Set the width to 100% */
+      max-width: 800px; /* Limit the maximum width */
+      padding: 15px 20px; /* Adjust padding for a larger input */
       font-size: 16px;
       border: 1px solid #ccc;
       border-radius: 25px;
@@ -150,7 +150,7 @@
 
     .clear-button {
       position: absolute;
-      right: 35px;
+      right: 35px; /* Adjust position relative to input size */
       top: 50%;
       transform: translateY(-50%);
       background: none;

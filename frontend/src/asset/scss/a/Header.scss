@@ -64,7 +64,8 @@ $text-color: #333;
       padding: 0;
 
       li {
-        padding-top: 15px;
+        display: flex;
+        align-items: center;
         margin-left: 40px;
         position: relative;
 

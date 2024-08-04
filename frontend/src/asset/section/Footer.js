@@ -50,7 +50,7 @@ const Footer = () => {
           <h3>주요서비스</h3>
           <ul>
             <li>
-              <a href="#!">산책로</a>
+              <a href="/map">산책로</a>
             </li>
             <li>
               <Link to="/community">커뮤니티</Link>

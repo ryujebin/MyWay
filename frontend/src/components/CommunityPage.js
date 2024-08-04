@@ -36,9 +36,10 @@ const CommunityPage = () => {
 
   return (
     <div className="community-page">
-      <div className="banner">
-        <img src={bannerImage} alt="산책이 일상으로" className="banner-image" />
-      </div>
+      <section class="banner-bar">
+        <h1 className='banner-words'>' 산책이 일상으로 '</h1>
+        <span class="mypage">COMMUNITY</span>
+      </section>
       <div className="community-content">
         <div className="tabs">
           <ul>

@@ -24,6 +24,10 @@
       hr {
         width : 40%;
       }
+      a {
+        text-decoration: none;
+        color: black;
+      }
     }
   
     .register_button_container {
@@ -33,6 +37,10 @@
   
       span {
         margin: 15px;
+      }
+      a {
+        text-decoration: none;
+        color: black;
       }
   
       .button-box {
@@ -47,21 +55,5 @@
           background-color: #f0f0f0;
         }
       }
-    }
   }
-  
-  /* 푸터 스타일 */
-  footer {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-  
-    .creator-button {
-      font-family: "Gowun Batang", serif;
-      color: rgb(0, 0, 0);
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-    }
-  }
-  
+}

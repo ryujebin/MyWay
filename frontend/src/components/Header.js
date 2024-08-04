@@ -33,6 +33,9 @@ const Header = () => {
           <li>
             <Link to="/community">커뮤니티</Link>
           </li>
+          <li>
+            <Link to="/Login">로그인</Link>
+          </li>
         </ul>
         <ul className="right-nav">
           <li>

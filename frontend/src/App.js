@@ -19,12 +19,14 @@ import { QandA4 } from "./components/QandA";
 
 import "./asset/scss/style.scss"; // 통합 스타일 파일 import
 
+
+
 function App() {
   const location = useLocation();
 
   return (
     <div className="App">
-      {location.pathname !== "/" && <Header />} {/* HomePage가 아닌 경우 Header 렌더링 */}
+      {location.pathname !== "/" && <Header />}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/community" element={<CommunityPage />} />

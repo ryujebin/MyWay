@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      {location.pathname !== "/" && <Header />}{" "}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/community" element={<CommunityPage />} />

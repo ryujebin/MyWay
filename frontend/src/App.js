@@ -10,6 +10,7 @@ import WalkTrail from "./components/WalkTrail";
 import Service from "./components/Service";
 import NewWalkTrail from "./components/NewWalkTrail";
 import Login from "./components/Login.js";
+import SignUp from "./components/SignUp.js"; // Import the SignUp component
 import QandA from "./components/QandA";
 import { QandA1 } from "./components/QandA";
 import { QandA2 } from "./components/QandA";
@@ -32,7 +33,8 @@ function App() {
         <Route path="/walktrail" element={<WalkTrail />} />
         <Route path="/service" element={<Service />} />
         <Route path="/NewWalkTrail" element={<NewWalkTrail />} />
-        <Route path="/Login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} /> {/* Add this line */}
         <Route path="/QandA" element={<QandA />} />
         <Route path="/QandA1" element={<QandA1 />} />
         <Route path="/QandA2" element={<QandA2 />} />

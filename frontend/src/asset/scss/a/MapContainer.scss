@@ -110,15 +110,14 @@ $category-btn-height: 40px;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: $overlay-bg-color;
-  border-radius: 20px;
-  padding: 10px 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 1); /* 흰색으로 변경 */
   z-index: 10;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  flex-direction: column; /* 수직 정렬 */
+  align-items: center; /* 가운데 정렬 */
+  padding: 10px; /* 여백 추가 */
+  border-radius: 10px; /* 둥근 모서리 추가 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
 
   .bottom-btn {
     display: flex;
@@ -126,10 +125,12 @@ $category-btn-height: 40px;
     gap: 10px;
     padding: 10px 20px;
     border-radius: 10px;
-    background-color: $search-bg-color;
-    border: 1px solid $border-color;
+    background-color: rgba(255, 255, 255, 0); /* 버튼을 투명색으로 변경 */
+    border: none; /* border 없애기 */
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+    box-shadow: none; /* 버튼의 그림자 없애기 */
+    justify-content: flex-start; /* 버튼 자체를 왼쪽 정렬 */
 
     img {
       width: 24px;
@@ -137,7 +138,7 @@ $category-btn-height: 40px;
     }
 
     &:hover {
-      background-color: $button-hover-bg-color;
+      background-color: rgba(0, 123, 255, 0.1); /* 호버 시 배경색 변경 */
       color: $button-hover-color;
     }
 
@@ -146,44 +147,16 @@ $category-btn-height: 40px;
       color: $overlay-bg-color;
     }
   }
-}
 
-// 메뉴 버튼들
-.menu-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  .menu-button {
-    background-color: $overlay-bg-color;
-    border: none;
-    color: $text-color;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: $font-size-large;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-
-    img {
-      width: 24px;
-      height: 24px;
-    }
-
-    &:hover {
-      background-color: $button-hover-bg-color;
-      color: $button-hover-color;
-    }
-
-    &:focus {
-      outline: none;
-    }
+  .bottom-btn img {
+    width: 24px;
+    height: 24px;
   }
 }
+
+
+
+
 
 // 거리 표시
 .dot {

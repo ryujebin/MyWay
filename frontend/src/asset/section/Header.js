@@ -19,7 +19,7 @@ const Header = () => {
       <nav className="nav">
         <ul className="left-nav">
           <li>
-          <Link to="/" onClick={toggleDropdown} className="combined-button">
+          <Link to="/Login" onClick={toggleDropdown} className="combined-button">
           산책로
               <img src={dropdownbtn} alt="Toggle Dropdown" className="dropdown-icon" />
                         </Link>

@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-function Login() {
+function SignUp() {
   return (
     <div>
       <div className="SignUp-box">
         <main>
-          <img src="/img/my_way_logo.png" className="logo_image" alt="Logo"/>
+          <img src="/img/my_way_logo.png" className="logo_image" alt="Logo" />
           <hr></hr>
           <div className="input-container">
             <input type="name" placeholder="이름" />
@@ -21,4 +21,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUp;

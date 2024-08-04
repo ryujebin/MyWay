@@ -291,7 +291,6 @@ var MapContainer = () => {
     console.log("산책로 목록 클릭됨");
   };
 
-
   return (
     <div style={{ width: "100%", height: "100vh", position: "relative" }}>
       <div className="search-container">

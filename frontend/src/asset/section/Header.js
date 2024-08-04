@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import profile from "../../components/images/Profile.png";
 import dropdownbtn from "../../components/images/dropdownbtn.png"; // 이미지 경로 수정
 
 const Header = () => {
-
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -25,9 +24,15 @@ const Header = () => {
                         </Link>
             {dropdownOpen && (
               <div className="dropdown-content">
-                <p><Link to="/map">산책로</Link></p>
-                <p><Link to="/NewWalkTrail">산책로 등록</Link></p>
-                <p><Link to="/walktrail">산책로 관리</Link></p>
+                <p>
+                  <Link to="/map">산책로</Link>
+                </p>
+                <p>
+                  <Link to="/NewWalkTrail">산책로 등록</Link>
+                </p>
+                <p>
+                  <Link to="/walktrail">산책로 관리</Link>
+                </p>
               </div>
             )}
           </li>

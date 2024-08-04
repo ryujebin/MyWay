@@ -137,10 +137,6 @@ $category-btn-height: 40px;
       height: 24px;
     }
 
-    &:hover {
-      background-color: rgba(0, 123, 255, 0.1); /* 호버 시 배경색 변경 */
-      color: $button-hover-color;
-    }
 
     &.on {
       background-color: $category-active-bg-color;

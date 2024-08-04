@@ -5,6 +5,18 @@ function Service() {
   return (
     <div>
       <main>
+        <section class="banner-bar">
+          <h1 className='banner-words'>' 산책이 일상으로 '</h1>
+          <span class="mypage">MYPAGE</span>
+        </section>
+        <nav>
+          <ul className="nav-list">
+            <li><Link to="/person" className="list">개인정보 관리</Link></li>
+            <li><Link to="/walktrail" className="list">산책로 관리</Link></li>
+            <li><Link to="/service" className="list">고객센터</Link></li>
+          </ul>
+        </nav>
+        <hr />
         <h1>자주 묻는 질문</h1>
         <div className='QandA_box'>
           

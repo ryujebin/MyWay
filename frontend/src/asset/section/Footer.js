@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../components/images/logo.PNG";
 import googlePlay from "../../components/images/googleplay.PNG";
@@ -26,9 +26,6 @@ const Footer = () => {
             </a>
             <a href="https://youtube.com" className="youtube-button">
               <img src={youtube} alt="YouTube" />
-            </a>
-            <a href="#!" className="producer-button">
-              제작자
             </a>
           </div>
         </div>
@@ -110,9 +107,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="copyright">
-        &copy; LIKELION UNIV. SCNU 12TH 워크홀릭
-      </div>
+      <div className="copyright">&copy; LIKELION UNIV. SCNU 12TH 워크홀릭</div>
     </footer>
   );
 };

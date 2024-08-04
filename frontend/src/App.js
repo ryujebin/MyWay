@@ -19,14 +19,12 @@ import { QandA4 } from "./components/QandA";
 
 import "./asset/scss/style.scss"; // 통합 스타일 파일 import
 
-
-
 function App() {
   const location = useLocation();
 
   return (
     <div className="App">
-      <Header />
+      {location.pathname !== "/" && <Header />} {/* HomePage가 아닌 경우 Header 렌더링 */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/community" element={<CommunityPage />} />
@@ -43,8 +41,7 @@ function App() {
         <Route path="/QandA3" element={<QandA3 />} />
         <Route path="/QandA4" element={<QandA4 />} />
       </Routes>
-      {location.pathname !== "/map" && <Footer />}{" "}
-      {/* MapContainer가 아닌 경우 Footer 렌더링 */}
+      {location.pathname !== "/map" && <Footer />} {/* MapContainer가 아닌 경우 Footer 렌더링 */}
     </div>
   );
 }

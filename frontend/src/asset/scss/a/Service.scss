@@ -1,0 +1,59 @@
+/* 메인 스타일 */
+  main {
+    font-family: "Do Hyeon", sans-serif;
+  
+    .banner_image {
+      width: 100%;
+    }
+  
+    hr {
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 25px;
+      text-align: center;
+    }
+
+    .QandA_box {
+      text-align: center;
+      order: 2px solid rgb(176, 176, 176); /* 검은색 실선 테두리 */
+      padding: 20px;
+      gap: 10px;
+      margin: 5px 300px;
+      hr {
+        width : 40%;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  
+    .register_button_container {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+  
+      span {
+        margin: 15px;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+  
+      .button-box {
+        padding: 10px 20px;
+        font-size: 1.2em;
+        font-family: 'Nanum Gothic Coding', monospace;
+        background: none;
+        border: 2px solid #000;
+        cursor: pointer;
+  
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+  }
+}

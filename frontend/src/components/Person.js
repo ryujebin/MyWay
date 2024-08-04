@@ -25,8 +25,6 @@ function Person() {
 
   const handleSaveChanges = () => {
     console.log('비밀번호 저장:', password);
-    console.log('이메일 저장:', email);
-    console.log('전화번호 저장:', phoneNumber);
     console.log('프로필 이미지 저장:', profileImage);
     // 여기서 각 입력 값을 저장하거나 처리하는 로직을 추가하세요.
   };
@@ -80,34 +78,6 @@ function Person() {
                 value={password} 
                 onChange={handlePasswordChange} 
                 placeholder="비밀번호를 입력하시오." 
-              />
-            </div>
-          </section>
-          <hr style={{ width: '30%' }} />
-          <section className="person_information">
-            <div className="settle">
-              <span>이메일</span>
-            </div>
-            <div className="set">
-              <input 
-                type="email" 
-                value={email} 
-                onChange={handleEmailChange} 
-                placeholder="이메일을 입력하시오." 
-              />
-            </div>
-          </section>
-          <hr style={{ width: '30%' }} />
-          <section className="person_information">
-            <div className="settle">
-              <span>전화번호</span>
-            </div>
-            <div className="set">
-              <input 
-                type="tel" 
-                value={phoneNumber} 
-                onChange={handlePhoneNumberChange} 
-                placeholder="전화번호를 입력하시오." 
               />
             </div>
           </section>

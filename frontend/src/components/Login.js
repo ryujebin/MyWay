@@ -13,7 +13,7 @@ function Login() {
           </div>
           <div className="login-register-buttons">
             <button className="new-button">로그인</button>
-            <button className="new-button">회원가입</button>
+            <Link to="/SignUp" className="new-button">회원가입</Link>
           </div>
           <div className="footer-buttons">
             <button className="footer-button">아이디 찾기</button>

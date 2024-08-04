@@ -1,7 +1,11 @@
 const express = require('express');
 const app = express();
 require('dotenv').config();
+const cors = require('cors');
 const port = 5000;
+
+// cors 미들웨어 사용 -> 백엔드와 프론트엔드가 서로 다른 포트에서 실행되기 때문
+app.use(cors());
 
 app.set('view engine', 'ejs');
 app.set('views', './frontend/views');
@@ -16,10 +20,9 @@ app.listen(port, () => {
 });
 
 // 라우터 가져오기
-const mapRoutes = require('./frontend/routes/mapRoutes'); 
-const pathRoutes = require('./backend/routes/pathRoutes');
+const pathRoutes = require('./routes/pathRoutes');
 
 // 라우터 사용
-app.use('/', mapRoutes); 
 app.use('/api/paths', pathRoutes);
+app.use('/api/auth', userRoutes);
 

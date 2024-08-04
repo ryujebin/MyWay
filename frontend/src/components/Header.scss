@@ -1,106 +1,145 @@
-// src/components/Header.scss
+// 변수 정의
+$header-height: 113px;
+$font-size-large: 48px;
+$font-size-medium: 18px;
+$font-size-small: 14px;
+$background-color: #fff;
+$shadow-color: rgba(0, 0, 0, 0.1);
+$dropdown-bg-color: #f9f9f9;
+$dropdown-shadow: rgba(0, 0, 0, 0.2);
+$hover-bg-color: #f0f0f0;
+$text-color: #333;
+
+// 헤더 스타일
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background-color: white;
+  background-color: $background-color;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px $shadow-color;
+  height: $header-height;
+  z-index: 1000;
+  position: relative;
 
-  .left-container {
-    display: flex;
-    align-items: center;
+  .logo {
+    margin-left: 100px;
 
-    .logo {
-      margin-right: 30px;
-
-      img {
-        max-height: 50px;
-        width: auto;
-        margin-left: 50px;
-      }
+    a {
+      font-size: $font-size-large;
+      font-weight: bold;
+      background: linear-gradient(to right, #5555ff, #11ffff);
+      -webkit-background-clip: text;
+      color: transparent;
     }
+  }
 
-    .nav-container {
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .left-nav,
+    .right-nav {
+      font-size: $font-size-large;
       display: flex;
       align-items: center;
+      margin: 0;
+      padding: 0;
+    }
 
-      .nav-links {
-        list-style: none;
-        display: flex;
-        gap: 20px;
+    .left-nav {
+      margin-right: auto;
+    }
 
-        li {
-          position: relative;
+    .right-nav {
+      margin-left: auto;
+    }
 
-          a {
-            text-decoration: none;
-            color: black;
-            font-size: 18px;
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        padding-top: 15px;
+        margin-left: 40px;
+        position: relative;
+
+        a {
+          text-decoration: none;
+          color: $text-color;
+          font-size: $font-size-medium;
+          padding: 5px 10px;
+          border-radius: 4px;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: $hover-bg-color;
           }
+        }
 
-          .dropdown .arrow {
-            margin-left: 5px;
-          }
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: $dropdown-bg-color;
+          box-shadow: 0 8px 16px $dropdown-shadow;
+          z-index: 1000;
+          left: 0;
+          top: 100%;
 
-          .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: white;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            list-style: none;
-            padding: 10px 0;
+          p {
+            font-size: $font-size-small;
             margin: 0;
-            display: none;
-            flex-direction: column;
-            z-index: 1;
-          }
-
-          &:hover .dropdown-menu {
-            display: flex;
-          }
-
-          .dropdown-menu li {
-            padding: 10px 20px;
+            padding: 10px;
+            white-space: nowrap;
 
             a {
-              color: black;
               text-decoration: none;
-              white-space: nowrap;
-
-              &:hover {
-                background-color: #f0f0f0;
-              }
+              color: inherit;
             }
+          }
+        }
+
+        &:hover {
+          .dropdown-content {
+            display: block;
           }
         }
       }
     }
+
+    .combined-button {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+
+      .dropdown-icon {
+        max-width: 100%;
+        height: auto;
+        margin-left: 8px;
+      }
+    }
   }
 
-  .mypage-button {
+  .mypage-link {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 20px;
-    background-color: white;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-    font-size: 14px;
-    color: #6c757d;
     text-decoration: none;
+    color: $text-color;
 
-    img {
-      width: 40px;
-      height: 40px;
+    .mypage-image {
+      width: 24px;
+      height: 24px;
       margin-bottom: 5px;
     }
 
     span {
-      font-size: 14px;
+      font-size: 20px;
     }
   }
 }

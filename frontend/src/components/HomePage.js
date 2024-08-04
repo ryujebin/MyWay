@@ -1,10 +1,6 @@
-// src/components/HomePage.js
 import React, { useState } from "react";
-import Header from "./Header"; // Header import
-import Footer from "./Footer"; // Footer import
-import image1 from "../components/images/homepage.PNG";
-import image2 from "../components/images/secondImage.PNG";
-import "./HomePage.scss";
+import image1 from "./images/homepage.PNG";
+import image2 from "./images/secondImage.PNG"; // Add more images as needed
 
 const HomePage = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -24,7 +20,6 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-      <Header /> {/* Use Header component */}
       <div className="content">
         <button className="prev-button" onClick={handlePrevClick}>
           &lt;
@@ -38,7 +33,6 @@ const HomePage = () => {
           &gt;
         </button>
       </div>
-      <Footer /> {/* Use Footer component */}
     </div>
   );
 };

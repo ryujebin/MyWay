@@ -1,10 +1,7 @@
-// src/components/CommunityPage.js
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Header from "./Header"; // Header import
-import Footer from "./Footer"; // Footer import
-import "./CommunityPage.scss";
-import bannerImage from "../images/banner.PNG";
+import bannerImage from "./images/banner.PNG";
+
 
 const CommunityPage = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -39,7 +36,6 @@ const CommunityPage = () => {
 
   return (
     <div className="community-page">
-      <Header /> {/* Use Header component */}
       <div className="banner">
         <img src={bannerImage} alt="산책이 일상으로" className="banner-image" />
       </div>
@@ -208,7 +204,6 @@ const CommunityPage = () => {
           )}
         </div>
       </div>
-      <Footer /> {/* Use Footer component */}
     </div>
   );
 };

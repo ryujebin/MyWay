@@ -1,7 +1,10 @@
-// src/components/Footer.scss
 .footer {
   background-color: white;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 150px;
 
   .footer-links {
     display: flex;
@@ -95,7 +98,7 @@
 
   .copyright {
     text-align: center;
-    margin-top: 20px;
+    margin-top: auto;
     font-size: 14px;
     color: gray;
   }

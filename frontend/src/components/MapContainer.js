@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
-import searchIcon from "./icons/search-icon.png"; // 돋보기 아이콘 추가
-import closeIcon from "./icons/close-icon.png"; // x 버튼 추가
-import restroomIcon from "./icons/restroom.png"; // 화장실 아이콘 추가
-import shelterIcon from "./icons/bench.png"; // 쉼터 아이콘 추가
-import bicycleIcon from "./icons/bike.png"; // 자전거 아이콘 추가
-import walkingpathIcon from "./icons/walkway.png"; // 산책로 아이콘 추가
-import wishlistIcon from "./icons/heart.png"; // 관심목록 아이콘 추가
-import registerPathIcon from "./icons/start_map.png"; // 산책로 등록 아이콘 추가
-import pathListIcon from "./icons/list_map.png"; // 산책로 목록 아이콘 추가
+import searchIcon from "./icons/search-icon.png";
+import closeIcon from "./icons/close-icon.png";
+import restroomIcon from "./icons/restroom.png";
+import shelterIcon from "./icons/bench.png";
+import bicycleIcon from "./icons/bike.png";
+import walkingpathIcon from "./icons/walkway.png";
+import wishlistIcon from "./icons/heart.png";
+import registerPathIcon from "./icons/start_map.png";
+import pathListIcon from "./icons/list_map.png";
+
+// 새로운 아이콘 추가
 
 const deleteClickLine = (clickLine) => {
   if (clickLine) {
@@ -277,8 +279,7 @@ var MapContainer = () => {
     document.head.appendChild(script);
   }, []);
 
-  var handleCategoryClick = (category) => {
-    // 카테고리 클릭 시의 로직을 추가합니다.
+  const handleCategoryClick = (category) => {
     console.log(`${category} 카테고리 클릭됨`);
   };
 
@@ -358,7 +359,7 @@ var MapContainer = () => {
         Load Paths
       </button>
     </div>
-  );
+  );  
 };
 
 export default MapContainer;

@@ -19,6 +19,8 @@ import { QandA4 } from "./components/QandA";
 
 import "./asset/scss/style.scss"; // 통합 스타일 파일 import
 
+
+
 function App() {
   const location = useLocation();
 

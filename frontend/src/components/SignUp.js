@@ -12,8 +12,8 @@ function SignUp() {
             <input type="text" placeholder="아이디" />
             <input type="password" placeholder="비밀번호" />
           </div>
-          <div className="login-register-buttons">
-            <button className="new-button">회원가입</button>
+          <div className="signup-register-buttons">
+            <button className="signup-button">회원가입</button>
           </div>
         </main>
       </div>

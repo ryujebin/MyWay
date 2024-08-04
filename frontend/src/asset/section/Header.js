@@ -18,18 +18,10 @@ const Header = () => {
       <nav className="nav">
         <ul className="left-nav">
           <li>
-            <Link
-              to="/Login"
-              onClick={toggleDropdown}
-              className="combined-button"
-            >
-              산책로
-              <img
-                src={dropdownbtn}
-                alt="Toggle Dropdown"
-                className="dropdown-icon"
-              />
-            </Link>
+          <Link to="/Login" onClick={toggleDropdown} className="combined-button">
+          산책로
+              <img src={dropdownbtn} alt="Toggle Dropdown" className="dropdown-icon" />
+                        </Link>
             {dropdownOpen && (
               <div className="dropdown-content">
                 <p>

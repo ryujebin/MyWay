@@ -7,6 +7,8 @@ function Login() {
   const [errorMessage, setErrorMessage] = useState('');
   const [userid, setUserId] = useState('');
   const [password, setPassword] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  
 
   const handleSignUpClick = () => {
     navigate("/signup");
@@ -19,16 +21,6 @@ function Login() {
       setErrorMessage('정보를 정확하게 입력해주시길 바랍니다.');
       return;
     }
-
-    // 백엔드 API 호출 예시
-    // const response = await fetch('/api/login', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({ userid, password }),
-    // });
-    // const result = await response.json();
 
     let response;
     
@@ -88,7 +80,7 @@ function Login() {
               type="text"
               placeholder="아이디"
               value={userid}
-              onChange={(e) => setuserid(e.target.value)}
+              onChange={(e) => setUserId(e.target.value)}
             />
             <input
               type="password"
@@ -110,6 +102,7 @@ function Login() {
             <button className="footer-button">비밀번호 찾기</button>
           </div>
           {errorMessage && <div className="error-message">{errorMessage}</div>}
+          {successMessage && <div className="error-message">{successMessage}</div>}
         </main>
       </div>
     </div>

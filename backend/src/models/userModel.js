@@ -4,7 +4,7 @@ const db = require('../../config/db');
 const UserModel = {
     // Id 이용해서 유저 찾기
     findByUserId: (userid, callback) => {
-        const sql = 'SELECT * FROM users WHERE username = (?)';
+        const sql = 'SELECT * FROM users WHERE userid = (?)';
         db.query(sql, [userid], (err, result) => {
             if (err) {
                 console.error('Error executing query:', err.stack);

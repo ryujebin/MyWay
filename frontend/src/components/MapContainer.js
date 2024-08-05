@@ -95,7 +95,7 @@ const MapContainer = () => {
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
-      "//dapi.kakao.com/v2/maps/sdk.js?appkey=KAKAO_KEY";
+      "//dapi.kakao.com/v2/maps/sdk.js?appkey=313889b8957c7467ade6065e3c37385f&libraries=services";
     script.async = true;
     script.onload = () => {
       var { kakao } = window;

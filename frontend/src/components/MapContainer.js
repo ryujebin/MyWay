@@ -95,7 +95,7 @@ const MapContainer = () => {
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
-      "//dapi.kakao.com/v2/maps/sdk.js?appkey=KAKAO_KEY&libraries=services";
+      "//dapi.kakao.com/v2/maps/sdk.js?appkey=5d5ff9dea154c6d5d695bc6a31aead6e";
     script.async = true;
     script.onload = () => {
       var { kakao } = window;
@@ -354,18 +354,18 @@ const MapContainer = () => {
     contentNode.className = "placeinfo_wrap";
 
     var content = '<div class="placeinfo">' +
-                  '   <a class="title" href="' + place.place_url + '" target="_blank" title="' + place.place_name + '">' + place.place_name + '</a>';   
+      '   <a class="title" href="' + place.place_url + '" target="_blank" title="' + place.place_name + '">' + place.place_name + '</a>';
 
     if (place.road_address_name) {
-        content += '    <span title="' + place.road_address_name + '">' + place.road_address_name + '</span>' +
-                    '  <span class="jibun" title="' + place.address_name + '">(지번 : ' + place.address_name + ')</span>';
-    }  else {
-        content += '    <span title="' + place.address_name + '">' + place.address_name + '</span>';
-    }                
-   
-    content += '    <span class="tel">' + place.phone + '</span>' + 
-                '</div>' + 
-                '<div class="after"></div>';
+      content += '    <span title="' + place.road_address_name + '">' + place.road_address_name + '</span>' +
+        '  <span class="jibun" title="' + place.address_name + '">(지번 : ' + place.address_name + ')</span>';
+    } else {
+      content += '    <span title="' + place.address_name + '">' + place.address_name + '</span>';
+    }
+
+    content += '    <span class="tel">' + place.phone + '</span>' +
+      '</div>' +
+      '<div class="after"></div>';
 
     contentNode.innerHTML = content;
     placeOverlay.setContent(contentNode);

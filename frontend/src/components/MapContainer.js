@@ -99,7 +99,7 @@ const MapContainer = () => {
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
-      "//dapi.kakao.com/v2/maps/sdk.js?appkey=313889b8957c7467ade6065e3c37385f&autoload=false";
+      "//dapi.kakao.com/v2/maps/sdk.js?appkey=5d5ff9dea154c6d5d695bc6a31aead6e&autoload=false";
     script.async = true;
     script.onload = () => {
       window.kakao.maps.load(() => {

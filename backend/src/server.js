@@ -4,7 +4,7 @@ require('dotenv').config();
 const cors = require('cors');
 const port = 5000;
 
-// cors 미들웨어 사용 -> 백엔드와 프론트엔드가 서로 다른 포트에서 실행되기 때문
+// cors 미들웨어 사용 -> 백엔드와 프론트엔드가 서로 다른 포트에서 실행
 app.use(cors());
 
 app.set('view engine', 'ejs');
@@ -21,7 +21,9 @@ app.listen(port, () => {
 
 // 라우터 가져오기
 const pathRoutes = require('./routes/pathRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 // 라우터 사용
 app.use('/api/paths', pathRoutes);
+app.use('/api/users', userRoutes);
 

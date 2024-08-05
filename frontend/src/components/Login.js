@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 function Login() {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState('');
-  const [username, setUsername] = useState('');
+  const [userid, setUserId] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSignUpClick = () => {
@@ -12,12 +13,12 @@ function Login() {
   };
 
   const handleLoginClick = async () => {
-    // 예시로 가정된 데이터베이스 체크
-    // 실제로는 백엔드 API를 호출하여 자격 증명을 확인해야 합니다.
-    const storedUser = {
-      username: 'testuser',
-      password: 'password123'
-    };
+
+    // 모든 필드가 입력되었는지 확인
+    if (!userid || !password) {
+      setErrorMessage('정보를 정확하게 입력해주시길 바랍니다.');
+      return;
+    }
 
     // 백엔드 API 호출 예시
     // const response = await fetch('/api/login', {
@@ -25,17 +26,44 @@ function Login() {
     //   headers: {
     //     'Content-Type': 'application/json',
     //   },
-    //   body: JSON.stringify({ username, password }),
+    //   body: JSON.stringify({ userid, password }),
     // });
     // const result = await response.json();
 
-    if (username === storedUser.username && password === storedUser.password) {
-      // 성공적으로 로그인
-      setErrorMessage('');
-      navigate('/community'); // 로그인 후 /community 경로로 이동
-    } else {
-      // 로그인 실패
-      setErrorMessage('로그인에 실패했습니다. 정보를 정확하게 입력해주세요.');
+    let response;
+    
+    // 로그인 요청
+    try {
+      response = await axios.post('http://localhost:5000/api/users/login', {
+        userid,
+        password,
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      console.log(response.data); // 응답 데이터 확인
+
+      // 성공적인 응답 처리
+      setSuccessMessage('로그인에 성공했습니다!');
+      setErrorMessage(''); // 기존 에러 메시지 초기화
+      // 필요 시 입력 필드 초기화
+      setUserId('');
+      setPassword('');
+    } catch (error) {
+      console.error('Error during login:', error.response ? error.response.data : error.message);
+      // 에러 처리
+      if (error.response) {
+        // 서버에서 응답이 온 경우
+        setErrorMessage(error.response.data.message || '로그인에 실패했습니다.');
+      } else {
+        // 다른 에러 발생
+        setErrorMessage('로그인에 실패했습니다. 다시 시도해주세요.');
+      }
+    }
+    if (response.status === 200) {
+      navigate('/');
     }
   };
 
@@ -59,8 +87,8 @@ function Login() {
             <input
               type="text"
               placeholder="아이디"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={userid}
+              onChange={(e) => setuserid(e.target.value)}
             />
             <input
               type="password"

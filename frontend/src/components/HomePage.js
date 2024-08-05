@@ -28,10 +28,10 @@ const HomePage = () => {
       <nav className="nav">
         <ul className="right-nav">
           <li>
-            <Link to="/Login" className="login-link">
+            <Link to="/login" className="login-link">
               <span>로그인</span>
             </Link>
-            <Link to="/SignUp" className="signup-link">
+            <Link to="/signup" className="signup-link">
               <span>회원가입</span>
             </Link>
           </li>

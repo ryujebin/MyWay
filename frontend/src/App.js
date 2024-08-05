@@ -26,8 +26,7 @@ function App() {
 
   return (
     <div className="App">
-      {location.pathname !== "/" && <Header />}
-      <Routes>
+        {location.pathname !== "/" && location.pathname !== "/login" && location.pathname !== "/signup" && <Header />}      <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/write" element={<WritePost />} />

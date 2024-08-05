@@ -24,5 +24,4 @@ const pathRoutes = require('./routes/pathRoutes');
 
 // 라우터 사용
 app.use('/api/paths', pathRoutes);
-app.use('/api/auth', userRoutes);
 

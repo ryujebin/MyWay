@@ -1,8 +1,0 @@
-{
-    "name": "myway",
-    "version": "1.0.0",
-    "scripts": {
-      "postinstall": "cd frontend && npm install",
-      "start": "cd frontend && npm start"
-    }
-  }

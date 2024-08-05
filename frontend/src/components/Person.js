@@ -3,20 +3,10 @@ import { Link } from 'react-router-dom';
 
 function Person() {
   const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
   const [profileImage, setProfileImage] = useState(null);
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
-  };
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePhoneNumberChange = (event) => {
-    setPhoneNumber(event.target.value);
   };
 
   const handleProfileImageChange = (event) => {

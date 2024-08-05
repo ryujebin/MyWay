@@ -77,25 +77,11 @@ function WalkTrail() {
               </div>
             </div>
             <div className="box2">
-              <div className="walk_trail_image">
-                <img src="/img/liked_trail_image2.jpg" style={{ width: '100px', margin: '10px' }} alt="Walk Trail 5" />
-              </div>
-              <div className="walk_trail_body">
-                <h1>워크홀릭의 알쓸산잡7</h1>
-                <p>알아두면 쓸데있는 산책로 잡지식</p>
-                <p>#강가산책 #반려견 산책</p>
-              </div>
-              <div className="setting_button_container">
-                <button className="setting_button">수정</button>
-                <button className="setting_button">삭제</button>
-              </div>
-            </div>
-            <div className="box2">
               <div className="walk_trail_i/images/liked_trail_image1.jpgmage">
                 <img src="/img/liked_trail_image3.jpg" style={{ width: '100px', margin: '10px' }} alt="Walk Trail 6" />
               </div>
               <div className="walk_trail_body">
-                <h1>워크홀릭의 알쓸산잡7</h1>
+                <h1>워크홀릭의 알쓸산잡2</h1>
                 <p>알아두면 쓸데있는 산책로 잡지식</p>
                 <p>#낭만가득 #인생사진</p>
               </div>

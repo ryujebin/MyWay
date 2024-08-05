@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios"; // API 호출을 위한 axios import
 import searchIcon from "./icons/search-icon.png";
 import closeIcon from "./icons/close-icon.png";
 import restroomIcon from "./icons/restroom.png";
@@ -8,8 +9,6 @@ import walkingpathIcon from "./icons/walkway.png";
 import wishlistIcon from "./icons/heart.png";
 import registerPathIcon from "./icons/start_map.png";
 import pathListIcon from "./icons/list_map.png";
-
-// 새로운 아이콘 추가
 
 const deleteClickLine = (clickLine) => {
   if (clickLine) {
@@ -97,7 +96,9 @@ const getTimeHTML = (distance) => {
   return content;
 };
 
-var MapContainer = () => {
+const MapContainer = () => {
+  const [selectedPath, setSelectedPath] = useState(null); // 선택된 경로 상태
+
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
@@ -113,15 +114,17 @@ var MapContainer = () => {
         };
         var map = new kakao.maps.Map(container, options);
 
-        // Drawing Path Variables
+        // 경로 그리기 변수
         let drawingFlag = false;
         let moveLine, clickLine, distanceOverlay;
         let dots = [];
 
+        // 맵 클릭 이벤트 핸들러
         kakao.maps.event.addListener(map, "click", function (mouseEvent) {
           const clickPosition = mouseEvent.latLng;
 
           if (!drawingFlag) {
+            // 새로운 경로 그리기 시작
             drawingFlag = true;
             deleteClickLine(clickLine);
             distanceOverlay = deleteDistance(distanceOverlay);
@@ -145,6 +148,7 @@ var MapContainer = () => {
 
             dots = displayCircleDot(kakao, map, clickPosition, 0, dots);
           } else {
+            // 경로에 새로운 점 추가
             var path = clickLine.getPath();
             path.push(clickPosition);
             clickLine.setPath(path);
@@ -154,6 +158,7 @@ var MapContainer = () => {
           }
         });
 
+        // 마우스 이동 이벤트 핸들러
         kakao.maps.event.addListener(map, "mousemove", function (mouseEvent) {
           if (drawingFlag) {
             var mousePosition = mouseEvent.latLng;
@@ -176,6 +181,7 @@ var MapContainer = () => {
           }
         });
 
+        // 오른쪽 클릭 이벤트 핸들러
         kakao.maps.event.addListener(map, "rightclick", function () {
           if (drawingFlag) {
             moveLine.setMap(null);
@@ -207,6 +213,7 @@ var MapContainer = () => {
           }
         });
 
+        // 경로 저장 버튼 클릭 이벤트 핸들러
         document
           .getElementById("savePath")
           .addEventListener("click", function () {
@@ -216,33 +223,37 @@ var MapContainer = () => {
                 lng: latlng.getLng(),
               }));
 
-              const xhr = new XMLHttpRequest();
-              xhr.open("POST", "/api/paths/save_path", true);
-              xhr.setRequestHeader("Content-Type", "application/json");
-              xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                  alert(xhr.responseText);
-                }
-              };
-              xhr.send(JSON.stringify({ path: JSON.stringify(path) }));
+              axios
+                .post("/api/paths/save_path", { path: JSON.stringify(path) })
+                .then((response) => {
+                  alert(response.data);
+                })
+                .catch((error) => {
+                  console.error("Error saving path:", error);
+                });
             } else {
-              alert("No path to save!");
+              alert("저장할 경로가 없습니다!");
             }
           });
 
+        // 산책로 목록 버튼 클릭 이벤트 핸들러
         document
-          .getElementById("loadPaths")
+          .getElementById("pathListButton")
           .addEventListener("click", function () {
-            const xhr = new XMLHttpRequest();
-            xhr.open("GET", "/api/paths/load_paths", true);
-            xhr.onreadystatechange = function () {
-              if (xhr.readyState === 4 && xhr.status === 200) {
-                const paths = JSON.parse(xhr.responseText);
+            console.log("산책로 목록 버튼 클릭됨"); // 로그 출력
+            axios
+              .get("/api/paths/load_paths")
+              .then((response) => {
+                const paths = response.data;
+                console.log("로드된 경로 데이터:", paths); // 로그 출력
                 paths.forEach((path) => {
-                  const pathArray = JSON.parse(path).map(
-                    (coord) => new kakao.maps.LatLng(coord.lat, coord.lng)
-                  );
-                  const polyline = new kakao.maps.Polyline({
+                  const pathArray = path.path
+                    ? JSON.parse(path.path).map(
+                        (coord) => new kakao.maps.LatLng(coord.lat, coord.lng)
+                      )
+                    : [new kakao.maps.LatLng(37.5665, 126.978)]; // 기본 위치 설정
+
+                  new kakao.maps.Polyline({
                     map: map,
                     path: pathArray,
                     strokeWeight: 3,
@@ -250,45 +261,60 @@ var MapContainer = () => {
                     strokeOpacity: 1,
                     strokeStyle: "solid",
                   });
+
+                  // 각 경로에 대한 마커 추가
+                  const markerImage = new kakao.maps.MarkerImage(
+                    path.image || "default-image-path.png", // 기본 이미지 설정
+                    new kakao.maps.Size(50, 50), // 크기 조정
+                    { offset: new kakao.maps.Point(25, 25) }
+                  );
+
+                  const marker = new kakao.maps.Marker({
+                    map: map,
+                    position: pathArray[0],
+                    title: path.title || "정보 없음",
+                    image: markerImage,
+                  });
+
+                  console.log("추가된 마커:", marker); // 로그 출력
+
+                  kakao.maps.event.addListener(marker, "click", () => {
+                    console.log("마커 클릭됨:", path); // 로그 출력
+                    setSelectedPath({
+                      ...path,
+                      title: path.title || "정보 없음",
+                      description: path.description || "설명이 없습니다.",
+                      hashtags: path.hashtags || "",
+                      distance: path.distance || "정보 없음",
+                      kcal: path.kcal || "정보 없음",
+                      time: path.time || "정보 없음",
+                      image: path.image || "default-image-path.png", // 기본 이미지 설정
+                    });
+                  });
                 });
-              }
-            };
-            xhr.send();
+              })
+              .catch((error) => {
+                console.error("경로 로드 중 오류 발생:", error);
+              });
           });
-
-        // 예시 마커 데이터
-        const positions = [
-          { title: "Marker1", latlng: new kakao.maps.LatLng(37.5665, 126.978) },
-          { title: "Marker2", latlng: new kakao.maps.LatLng(37.5655, 126.977) },
-        ];
-
-        positions.forEach((position) => {
-          const marker = new kakao.maps.Marker({
-            map: map,
-            position: position.latlng,
-            title: position.title,
-          });
-        });
       } else {
-        console.error("Kakao Maps API failed to load.");
+        console.error("카카오 맵 API 로드 실패.");
       }
     };
     script.onerror = () => {
-      console.error("Failed to load the Kakao Maps API script.");
+      console.error("카카오 맵 API 스크립트 로드 실패.");
     };
     document.head.appendChild(script);
   }, []);
 
+  // 카테고리 버튼 클릭 핸들러
   const handleCategoryClick = (category) => {
     console.log(`${category} 카테고리 클릭됨`);
   };
 
+  // 산책로 등록 버튼 클릭 핸들러
   const handleRegisterPathClick = () => {
     console.log("산책로 등록 클릭됨");
-  };
-
-  const handlePathListClick = () => {
-    console.log("산책로 목록 클릭됨");
   };
 
   return (
@@ -347,7 +373,7 @@ var MapContainer = () => {
           <img src={registerPathIcon} alt="산책로 등록" />
           산책로 등록 시작 / 종료
         </button>
-        <button className="bottom-btn" onClick={handlePathListClick}>
+        <button className="bottom-btn" id="pathListButton">
           <img src={pathListIcon} alt="산책로 목록" />
           산책로 목록
         </button>
@@ -355,11 +381,25 @@ var MapContainer = () => {
       <button id="savePath" style={{ display: "none" }}>
         Save Path
       </button>
-      <button id="loadPaths" style={{ display: "none" }}>
-        Load Paths
-      </button>
+      {selectedPath && (
+        <div className="path-details">
+          <img
+            src={selectedPath.image}
+            alt={selectedPath.title}
+            className="path-image"
+          />
+          <div className="path-info">
+            <h3>{selectedPath.title}</h3>
+            <p>{selectedPath.description}</p>
+            <p>{selectedPath.hashtags}</p>
+            <p>{selectedPath.distance}km</p>
+            <p>{selectedPath.kcal}kcal</p>
+            <p>{selectedPath.time}</p>
+          </div>
+        </div>
+      )}
     </div>
-  );  
+  );
 };
 
 export default MapContainer;

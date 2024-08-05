@@ -173,16 +173,21 @@
     .qa-content .qa-item {
       display: flex;
       justify-content: space-between;
+      align-items: center; /* Align items to center */
       padding: 10px 0;
       border-bottom: 1px solid #ccc;
       cursor: pointer;
 
       p {
         margin: 0;
+        max-width: calc(100% - 150px); /* Limit the width of the title */
+        flex: 1;
       }
 
       .views {
         color: #999;
+        min-width: 150px; /* Set a fixed width for the view count */
+        text-align: right;
       }
 
       &.expanded {

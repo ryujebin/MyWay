@@ -10,16 +10,16 @@ import WalkTrail from "./components/WalkTrail";
 import Service from "./components/Service";
 import NewWalkTrail from "./components/NewWalkTrail";
 import Login from "./components/Login.js";
-import SignUp from "./components/SignUp.js"; // Import the SignUp component
+import SignUp from "./components/SignUp.js";
 import QandA from "./components/QandA";
 import { QandA1 } from "./components/QandA";
 import { QandA2 } from "./components/QandA";
 import { QandA3 } from "./components/QandA";
 import { QandA4 } from "./components/QandA";
+import WritePost from "./components/WritePost"; // Import WritePost component
+import Inquire from "./components/Inquire"; // Import Inquire component
 
 import "./asset/scss/style.scss"; // 통합 스타일 파일 import
-
-
 
 function App() {
   const location = useLocation();
@@ -30,20 +30,24 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/community" element={<CommunityPage />} />
+        <Route path="/write" element={<WritePost />} />
+        <Route path="/inquire" element={<Inquire />} />{" "}
+        {/* Add Inquire route */}
         <Route path="/map" element={<MapContainer />} />
         <Route path="/person" element={<Person />} />
         <Route path="/walktrail" element={<WalkTrail />} />
         <Route path="/service" element={<Service />} />
         <Route path="/NewWalkTrail" element={<NewWalkTrail />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} /> {/* Add this line */}
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/QandA" element={<QandA />} />
         <Route path="/QandA1" element={<QandA1 />} />
         <Route path="/QandA2" element={<QandA2 />} />
         <Route path="/QandA3" element={<QandA3 />} />
         <Route path="/QandA4" element={<QandA4 />} />
       </Routes>
-      {location.pathname !== "/map" && <Footer />} {/* MapContainer가 아닌 경우 Footer 렌더링 */}
+      {location.pathname !== "/map" && <Footer />}{" "}
+      {/* MapContainer가 아닌 경우 Footer 렌더링 */}
     </div>
   );
 }

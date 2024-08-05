@@ -1,7 +1,7 @@
 // 변수 정의
-$search-bg-color: #F4F4F4;
+$search-bg-color: #f4f4f4;
 $border-color: #ddd;
-$category-bg-color: #FFFFFF;
+$category-bg-color: #ffffff;
 $category-active-bg-color: #007bff;
 $text-color: #007bff;
 $button-hover-bg-color: #007bff;
@@ -16,7 +16,7 @@ $font-size-large: 14px;
 $category-btn-width: 93px;
 $category-btn-height: 40px;
 
-// 검색 컨테이너
+// 검색 컨테이너 스타일
 .search-container {
   position: absolute;
   top: 10px;
@@ -41,7 +41,8 @@ $category-btn-height: 40px;
     box-sizing: border-box;
     margin-bottom: 10px;
 
-    .search-icon, .close-icon {
+    .search-icon,
+    .close-icon {
       width: 24px;
       height: 24px;
     }
@@ -104,7 +105,7 @@ $category-btn-height: 40px;
   }
 }
 
-// 기타 버튼들
+// 기타 버튼 스타일
 .bottom-container {
   position: absolute;
   bottom: 20px;
@@ -114,7 +115,7 @@ $category-btn-height: 40px;
   z-index: 10;
   display: flex;
   flex-direction: column; /* 수직 정렬 */
-  align-items: center; /* 가운데 정렬 */
+  align-items: flex-start; /* 왼쪽 정렬 */
   padding: 10px; /* 여백 추가 */
   border-radius: 10px; /* 둥근 모서리 추가 */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
@@ -130,13 +131,13 @@ $category-btn-height: 40px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     box-shadow: none; /* 버튼의 그림자 없애기 */
-    justify-content: flex-start; /* 버튼 자체를 왼쪽 정렬 */
+    justify-content: flex-start; /* 버튼 내용 왼쪽 정렬 */
+    width: 100%; /* 버튼을 컨테이너 너비로 확장 */
 
     img {
       width: 24px;
       height: 24px;
     }
-
 
     &.on {
       background-color: $category-active-bg-color;
@@ -150,17 +151,13 @@ $category-btn-height: 40px;
   }
 }
 
-
-
-
-
-// 거리 표시
+// 거리 표시 스타일
 .dot {
   overflow: hidden;
   float: left;
   width: $dot-size;
   height: $dot-size;
-  background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png');
+  background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png");
 }
 
 .dotOverlay {
@@ -185,14 +182,14 @@ $category-btn-height: 40px;
   }
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     margin-left: -6px;
     left: 50%;
     bottom: -8px;
     width: 11px;
     height: 8px;
-    background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white_small.png');
+    background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white_small.png");
   }
 
   .distanceInfo {
@@ -205,6 +202,44 @@ $category-btn-height: 40px;
     .label {
       display: inline-block;
       width: 50px;
+    }
+  }
+}
+
+// 경로 상세 정보 스타일
+.path-details {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .path-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .path-info {
+    flex: 1;
+
+    h3 {
+      margin: 0 0 10px;
+    }
+
+    p {
+      margin: 0;
+      color: #666;
     }
   }
 }

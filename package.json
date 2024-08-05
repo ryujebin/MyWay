@@ -1,7 +1,0 @@
-{
-    "name": "your-project",
-    "version": "1.0.0",
-    "scripts": {
-      "start": "cd frontend && npm start"
-    }
-  }

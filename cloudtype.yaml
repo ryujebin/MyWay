@@ -1,9 +1,0 @@
-version: '1.0'
-
-services:
-  web:
-    build:
-      context: .
-    command: npm start
-    ports:
-      - "3000:3000"

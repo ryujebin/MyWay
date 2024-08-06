@@ -3,8 +3,8 @@ const db = require('../../config/db');
 
 const PathModel = {
     savePath: (path, callback) => {
-        const sql = 'INSERT INTO trails (path) VALUES (?)';
-        db.query(sql, [path], (err, result) => {
+        const sql = 'INSERT INTO trails (path, distance, finishtime) VALUES (?, ?, ?)';
+        db.query(sql, [path, distance, finishtime], (err, result) => {
             if (err) {
                 console.error('Error executing query:', err.stack);
                 return callback(err);

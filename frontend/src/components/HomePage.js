@@ -35,31 +35,7 @@ const HomePage = () => {
 
   return (
     <>
-      <header className="header">
-        <div className="logo">
-          <Link to="/">MyWay</Link>
-        </div>
-        <nav className="nav">
-          <ul className="right-nav">
-            {isLoggedIn ? (
-              <li>
-                <button onClick={handleLogout} className="log-link">
-                  로그아웃
-                </button>
-              </li>
-            ) : (
-              <li>
-                <Link to="/login" className="log-link">
-                  <span>로그인</span>
-                </Link>
-                <Link to="/signup" className="signup-link">
-                  <span>회원가입</span>
-                </Link>
-              </li>
-            )}
-          </ul>
-        </nav>
-      </header>
+    
       <div className="homepage">
         <div className="content">
           <button className="prev-button" onClick={handlePrevClick}>

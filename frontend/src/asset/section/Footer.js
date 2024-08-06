@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../components/images/logo.PNG";
 import googlePlay from "../../components/images/googleplay.PNG";
 import appStore from "../../components/images/appstore.PNG";
 import instagram from "../../components/images/instagram.PNG";
@@ -11,7 +10,9 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-links">
         <div className="footer-column footer-logo">
-          <img src={logo} alt="MyWay Logo" />
+          <div className="logo">
+            <Link to="/">MyWay</Link>
+          </div>
           <div className="footer-app-links">
             <a href="https://play.google.com/store">
               <img src={googlePlay} alt="Google Play" />

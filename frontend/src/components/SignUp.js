@@ -8,7 +8,6 @@ function SignUp() {
   const [userid, setUserId] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
 
   const handleLogoClick = () => {
     navigate('/');
@@ -21,11 +20,8 @@ function SignUp() {
       return;
     }
 
-    let response;
-
-    // 회원 가입 요청 보내기
     try {
-      response = await axios.post('http://localhost:5000/api/users/signup', {
+      const response = await axios.post('http://localhost:5000/api/users/signup', {
         username,
         userid,
         password,
@@ -38,12 +34,15 @@ function SignUp() {
       console.log(response.data); // 응답 데이터 확인
 
       // 성공적인 응답 처리
-      setSuccessMessage('회원 가입이 완료되었습니다!');
       setErrorMessage(''); // 기존 에러 메시지 초기화
       // 필요 시 입력 필드 초기화
       setUserName('');
       setUserId('');
       setPassword('');
+
+      if (response.status === 200) {
+        navigate('/login');
+      }
     } catch (error) {
       console.error('Error during sign up:', error.response ? error.response.data : error.message);
       // 에러 처리
@@ -54,9 +53,6 @@ function SignUp() {
         // 다른 에러 발생
         setErrorMessage('회원 가입에 실패했습니다. 다시 시도해주세요.');
       }
-    }
-    if (response.status === 200) {
-      navigate('/login');
     }
   };
 
@@ -100,7 +96,6 @@ function SignUp() {
             </button>
           </div>
           {errorMessage && <div className="error-message">{errorMessage}</div>}
-          {successMessage && <div className="success-message">{successMessage}</div>}
         </main>
       </div>
     </div>

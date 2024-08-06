@@ -1,9 +1,10 @@
 .body {
+  font-family: 'Gothic A1', sans-serif;
   margin: 0;
-  font-family: Arial, sans-serif;
 }
 
 .header {
+  font-family: 'Gothic A1', sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -72,6 +73,7 @@
 }
 
 .banner {
+  font-family: 'Gothic A1', sans-serif;
   width: 100%;
   overflow: hidden;
 
@@ -83,6 +85,7 @@
 }
 
 .community-content {
+  font-family: 'Gothic A1', sans-serif;
   padding: 20px;
 
   .tabs {
@@ -90,6 +93,7 @@
     justify-content: space-between;
     align-items: center;
     margin-left: 30px;
+    height: 40px;
 
     ul {
       list-style: none;
@@ -167,35 +171,51 @@
 
   .tab-content {
     padding-top: 20px;
+    width: 60%;
+    margin-left: 20%;
+    margin-bottom: 10%;
 
-    .notice-content .notice-item,
-    .freeboard-content .post-item,
-    .qa-content .qa-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center; /* Align items to center */
-      padding: 10px 0;
-      border-bottom: 1px solid #ccc;
-      cursor: pointer;
+    .notice-content,
+    .freeboard-content,
+    .qa-content {
+      margin: 30px;
 
-      p {
-        margin: 0;
-        max-width: calc(100% - 150px); /* Limit the width of the title */
-        flex: 1;
-      }
+      .notice-item,
+      .post-item,
+      .qa-item {
+        
+        .notice-title,
+        .post-title,
+        .qa-title {
+          font-size: 18px;
+          font-weight: bold;
+        }
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* Align items to center */
+        padding: 10px 0;
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
 
-      .views {
-        color: #999;
-        min-width: 150px; /* Set a fixed width for the view count */
-        text-align: right;
-      }
+        p {
+          margin: 0;
+          max-width: calc(100% - 150px); /* Limit the width of the title */
+          flex: 1;
+        }
 
-      &.expanded {
-        .notice-details,
-        .post-details,
-        .qa-details {
-          padding: 10px;
-          border-top: 1px solid #ccc;
+        .views {
+          color: #999;
+          min-width: 150px; /* Set a fixed width for the view count */
+          text-align: right;
+        }
+
+        &.expanded {
+          .notice-details,
+          .post-details,
+          .qa-details {
+            padding: 10px;
+            border-top: 1px solid #ccc;
+          }
         }
       }
     }

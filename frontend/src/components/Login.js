@@ -24,7 +24,7 @@ function Login() {
 
     // 로그인 요청
     try {
-      response = await axios.post('https://www.mywayapp.uk/ :5000/api/users/login', {
+      response = await axios.post('https://www.mywayapp.uk:5000/api/users/login', {
         userid,
         password,
       }, {

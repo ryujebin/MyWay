@@ -42,7 +42,9 @@ const Footer = () => {
               <a href="https://youtube.com">MyWay Youtube</a>
             </li>
             <li>
-              <a href="#!">MyWay Producer</a>
+              <a href="https://quiet-marsupial-0ed.notion.site/12-b6562f90d58f4d459d26f5592a8e22f5?pvs=4">
+                MyWay Producer
+              </a>
             </li>
           </ul>
         </div>

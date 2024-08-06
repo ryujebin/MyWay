@@ -33,7 +33,7 @@ function Person() {
             <li><Link to="/service" className="list">고객센터</Link></li>
           </ul>
         </nav>
-        <hr />
+        <hr style={{width: '97%'}}/>
         <section style={{ margin: '40px 0px' }}>
           <hr style={{ width: '30%' }} />
           <section className="person_information">

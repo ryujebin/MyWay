@@ -1,5 +1,6 @@
 /* 메인 컨테이너 */
 .main-container {
+  font-family: 'Gothic A1', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,6 +12,7 @@
 
 /* 폼 */
 form {
+  font-family: 'Gothic A1', sans-serif;
   border: 1px solid #ccc;
   padding: 30px; /* 패딩값을 키움 */
   border-radius: 5px;
@@ -22,11 +24,18 @@ form {
 }
 
 form div {
+<<<<<<< HEAD
   margin-bottom: 20px; /* 간격을 더 키움 */
   width: 95%;
+=======
+  font-family: 'Gothic A1', sans-serif;
+  margin-bottom: 15px;
+  width: 100%;
+>>>>>>> 6f7208c80eb48cabcc7bdfc77534bc63eabb2a89
 }
 
 form label {
+  font-family: 'Gothic A1', sans-serif;
   display: block;
   margin-bottom: 10px; /* 간격을 더 키움 */
   font-weight: bold;
@@ -34,15 +43,27 @@ form label {
 
 form input,
 form textarea {
+<<<<<<< HEAD
   width: 100%; /* 입력 필드 너비를 100%로 설정 */
   padding: 15px; /* 패딩값을 키움 */
+=======
+  font-family: 'Gothic A1', sans-serif;
+  width: 100%;
+  padding: 10px;
+>>>>>>> 6f7208c80eb48cabcc7bdfc77534bc63eabb2a89
   border: 1px solid #ccc;
   border-radius: 3px;
 }
 
 form button {
+<<<<<<< HEAD
   width: 100%; /* 버튼 너비를 100%로 설정 */
   padding: 15px; /* 패딩값을 키움 */
+=======
+  font-family: 'Gothic A1', sans-serif;
+  width: 100%;
+  padding: 10px;
+>>>>>>> 6f7208c80eb48cabcc7bdfc77534bc63eabb2a89
   background-color: #007bff;
   color: white;
   border: none;
@@ -51,5 +72,6 @@ form button {
 }
 
 form button:hover {
+  font-family: 'Gothic A1', sans-serif;
   background-color: #0056b3;
 }

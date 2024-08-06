@@ -44,7 +44,7 @@ function WalkTrail() {
           </li>
         </ul>
       </nav>
-      <hr />
+      <hr style={{width: '97%'}}/>
       <main>
         <section className="walk_trail">
           <div className="box1">나의 산책로 목록</div>

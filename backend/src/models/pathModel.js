@@ -3,7 +3,7 @@ const db = require('../../config/db');
 
 const PathModel = {
     savePath: (path, callback) => {
-        const sql = 'INSERT INTO paths (path) VALUES (?)';
+        const sql = 'INSERT INTO trails (path) VALUES (?)';
         db.query(sql, [path], (err, result) => {
             if (err) {
                 console.error('Error executing query:', err.stack);
@@ -13,7 +13,7 @@ const PathModel = {
         });
     },
     loadPaths: (callback) => {
-        const sql = 'SELECT path FROM paths';
+        const sql = 'SELECT path FROM trails';
         db.query(sql, (err, results) => {
             if (err) {
                 console.error('Error executing query:', err.stack);

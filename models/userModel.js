@@ -1,5 +1,5 @@
 // 유저 모델
-const db = require('../../config/db');
+const db = require('../db');
 
 const UserModel = {
     // Id 이용해서 유저 찾기

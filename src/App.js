@@ -1,23 +1,23 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import Header from "./asset/section/Header";
-import Footer from "./asset/section/Footer";
-import HomePage from "./components/HomePage";
-import MapContainer from "./components/MapContainer";
-import CommunityPage from "./components/CommunityPage";
-import Person from "./components/Person";
-import WalkTrail from "./components/WalkTrail";
-import Service from "./components/Service";
-import NewWalkTrail from "./components/NewWalkTrail";
+import Header from "./asset/section/Header.js";
+import Footer from "./asset/section/Footer.js";
+import HomePage from "./components/HomePage.js";
+import MapContainer from "./components/MapContainer.js";
+import CommunityPage from "./components/CommunityPage.js";
+import Person from "./components/Person.js";
+import WalkTrail from "./components/WalkTrail.js";
+import Service from "./components/Service.js";
+import NewWalkTrail from "./components/NewWalkTrail.js";
 import Login from "./components/Login.js";
 import SignUp from "./components/SignUp.js";
-import QandA from "./components/QandA";
-import { QandA1 } from "./components/QandA";
-import { QandA2 } from "./components/QandA";
-import { QandA3 } from "./components/QandA";
-import { QandA4 } from "./components/QandA";
-import WritePost from "./components/WritePost"; // Import WritePost component
-import Inquire from "./components/Inquire"; // Import Inquire component
+import QandA from "./components/QandA.js";
+import { QandA1 } from "./components/QandA.js";
+import { QandA2 } from "./components/QandA.js";
+import { QandA3 } from "./components/QandA.js";
+import { QandA4 } from "./components/QandA.js";
+import WritePost from "./components/WritePost.js"; // Import WritePost component
+import Inquire from "./components/Inquire.js"; // Import Inquire component
 
 import "./asset/scss/style.scss"; // 통합 스타일 파일 import
 

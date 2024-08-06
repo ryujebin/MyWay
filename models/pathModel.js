@@ -1,5 +1,5 @@
 // 경로 모델
-const db = require('../../config/db');
+const db = require('../db');
 
 const PathModel = {
     savePath: (path, callback) => {

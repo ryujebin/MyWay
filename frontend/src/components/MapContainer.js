@@ -109,7 +109,7 @@ var MapContainer = () => {
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
-      "//dapi.kakao.com/v2/maps/sdk.js?appkey=b7c1a149e2b81525a9d99c594a70e74f&libraries=services&autoload=false";
+      "//dapi.kakao.com/v2/maps/sdk.js?appkey=5d5ff9dea154c6d5d695bc6a31aead6e&libraries=services&autoload=false";
     script.async = true;
     script.onload = () => {
       window.kakao.maps.load(() => {

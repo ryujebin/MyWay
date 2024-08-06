@@ -1,4 +1,5 @@
 .footer {
+  font-family: 'Gothic A1', sans-serif;
   background-color: white;
   padding: 20px;
   display: flex;
@@ -40,6 +41,17 @@
     }
 
     .footer-logo {
+      .logo {
+        font-family: Rubik;
+        margin-bottom: 15px;
+        a {
+          font-size: 50px;
+          font-weight: bold;
+          background: linear-gradient(to right, #5555ff, #11ffff);
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+      }
       img {
         max-width: 150px;
         margin-bottom: 10px;

@@ -21,7 +21,7 @@ function SignUp() {
     }
 
     try {
-      const response = await axios.post('https://www.mywayapp.uk/:5000/api/users/signup', {
+      const response = await axios.post('mywayapp.uk:5000/api/users/signup', {
         username,
         userid,
         password,

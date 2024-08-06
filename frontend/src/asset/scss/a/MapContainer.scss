@@ -18,6 +18,7 @@ $category-btn-height: 40px;
 
 // 검색 컨테이너
 .search-container {
+  font-family: 'Gothic A1', sans-serif;
   position: absolute;
   top: 10px;
   left: 50%;
@@ -123,6 +124,7 @@ $category-btn-height: 40px;
 
 // 기타 버튼들
 .bottom-container {
+  font-family: 'Gothic A1', sans-serif;
   position: absolute;
   bottom: 20px;
   left: 50%;
@@ -169,6 +171,7 @@ $category-btn-height: 40px;
 
 // 거리 표시
 .dot {
+  font-family: 'Gothic A1', sans-serif;
   overflow: hidden;
   float: left;
   width: $dot-size;
@@ -177,6 +180,7 @@ $category-btn-height: 40px;
 }
 
 .dotOverlay {
+  font-family: 'Gothic A1', sans-serif;
   position: relative;
   bottom: 10px;
   border-radius: 6px;

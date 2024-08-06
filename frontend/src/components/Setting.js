@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Setting() {
   return (
     <div>
-      <header>
+      <section>
         <div className="home_logo">
           <img src="/img/my_way_logo.png" className="logo_image" alt="Logo" />
         </div>
@@ -15,7 +15,7 @@ function Setting() {
             <li><Link to="/person" className="tap_button2">마이페이지</Link></li>
           </ul>
         </nav>
-      </header>
+      </section>
       <main>
         <div className="banner_bar">
           <img src="/img/banner.png" className="banner_image" alt="Banner" />
@@ -27,7 +27,7 @@ function Setting() {
             <li><Link to="/service" className="list">고객센터</Link></li>
           </ul>
         </nav>
-        <hr />
+        <hr style={{width: '97%'}}/>
       </main>
       <footer />
     </div>

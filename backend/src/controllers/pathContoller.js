@@ -1,26 +1,34 @@
-// 맵 경로 저장 및 불러오기 컨트롤러
-const PathModel = require('../models/pathModel');
+// pathContoller.js
+const pathModel = require('../models/pathModel');
 
-const pathController = {
-    savePath: (req, res) => {
-        const path = req.body.path;
-        console.log('Received path:', path); // 경로 데이터 확인
+const savePath = (req, res) => {
+    const path = req.body.path; // JSON 배열
+    const distance = req.body.distance;
+    const finishtime = req.body.finishtime;
 
-        PathModel.savePath(path, (err, result) => {
-            if (err) {
-                return res.status(500).send('Error saving path');
-            }
-            res.send('Path saved successfully');
-        });
-    },
-    loadPaths: (req, res) => {
-        PathModel.loadPaths((err, paths) => {
-            if (err) {
-                return res.status(500).send('Error loading paths');
-            }
-            res.json(paths);
-        });
-    }
+    console.log('Received path data:', path);
+    console.log('Received distance:', distance);
+    console.log('Received finishtime:', finishtime);
+
+    pathModel.savePath(path, distance, finishtime, (err, result) => {
+        if (err) {
+            console.error('Error saving path:', err);
+            return res.status(500).json({ error: 'Failed to save path' });
+        }
+        console.log('Path saved successfully:', result);
+        res.status(200).json({ success: 'Path saved successfully', result });
+    });
 };
 
-module.exports = pathController;
+const loadPaths = (req, res) => {
+    pathModel.loadPaths((err, paths) => {
+        if (err) {
+            console.error('Error loading paths:', err);
+            return res.status(500).json({ error: 'Failed to load paths' });
+        }
+        console.log('Loaded paths:', paths);
+        res.status(200).json({ paths });
+    });
+};
+
+module.exports = { savePath, loadPaths };

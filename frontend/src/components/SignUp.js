@@ -21,7 +21,7 @@ function SignUp() {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/users/signup', {
+      const response = await axios.post('http://https://port-0-mywayserver-lyyh5r055f71ecd6.sel4.cloudtype.app:5000/api/users/signup', {
         username,
         userid,
         password,

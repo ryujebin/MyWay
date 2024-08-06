@@ -16,7 +16,7 @@ function Service() {
             <li><Link to="/service" className="list">고객센터</Link></li>
           </ul>
         </nav>
-        <hr />
+        <hr style={{width: '97%'}}/>
         <h1>자주 묻는 질문</h1>
         <div className='QandA_box'>
           

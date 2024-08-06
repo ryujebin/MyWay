@@ -1,6 +1,7 @@
 .nav-list {
+  font-family: 'Gothic A1', sans-serif;
   list-style: none;
-  margin-left: 100px;
+  margin-left: 30px;
   margin-top: 20px;
   padding: 0;
   display: flex;
@@ -20,11 +21,16 @@
 }
 
 main {
-  font-family: "Do Hyeon", sans-serif;
+  font-family: 'Gothic A1', sans-serif;
 
-  .banner_image {
-    width: 100%;
+  .banner-bar {
+    font-family: 'Gothic A1', sans-serif;
+    .banner_image {
+      width: 100%;
+    }  
   }
+
+  
 
   hr {
     width: 90%;

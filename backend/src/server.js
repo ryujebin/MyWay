@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 require('dotenv').config();
 const cors = require('cors');
-const port = 5000;
+const port = 3000;
 
 // cors 미들웨어 사용 -> 백엔드와 프론트엔드가 서로 다른 포트에서 실행
 app.use(cors());

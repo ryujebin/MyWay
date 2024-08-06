@@ -87,11 +87,11 @@ const getTimeHTML = (distance) => {
   walkMin = `<span class="number">${walkTime % 60}</span>분`;
 
   const content = `
-    <ul class="dotOverlay distanceInfo">
-      <li><span class="label">총거리</span><span class="number">${distance}</span>m</li>
-      <li><span class="label">도보</span>${walkHour}${walkMin}</li>
-    </ul>
-  `;
+      <ul class="dotOverlay distanceInfo">
+        <li><span class="label">총거리</span><span class="number">${distance}</span>m</li>
+        <li><span class="label">도보</span>${walkHour}${walkMin}</li>
+      </ul>
+    `;
   return content;
 };
 

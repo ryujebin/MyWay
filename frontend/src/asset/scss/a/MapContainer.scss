@@ -16,7 +16,7 @@ $font-size-large: 14px;
 $category-btn-width: 93px;
 $category-btn-height: 40px;
 
-// 검색 컨테이너 스타일
+// 검색 컨테이너
 .search-container {
   position: absolute;
   top: 10px;
@@ -105,7 +105,7 @@ $category-btn-height: 40px;
   }
 }
 
-// 기타 버튼 스타일
+// 기타 버튼들
 .bottom-container {
   position: absolute;
   bottom: 20px;
@@ -151,7 +151,7 @@ $category-btn-height: 40px;
   }
 }
 
-// 거리 표시 스타일
+// 거리 표시
 .dot {
   overflow: hidden;
   float: left;
@@ -206,7 +206,6 @@ $category-btn-height: 40px;
   }
 }
 
-// 경로 상세 정보 스타일
 .path-details {
   position: absolute;
   bottom: 80px;

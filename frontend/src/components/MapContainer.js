@@ -100,7 +100,6 @@ const getTimeHTML = (distance) => {
   walkMin = `<span class="number">${walkTime % 60}</span>분`;
 
   const content = `
-<<<<<<< HEAD
     <ul class="dotOverlay distanceInfo">
       <li><span class="label">총거리</span><span class="number">${distance}</span>m</li>
       <li><span class="label">도보</span>${walkHour}${walkMin}</li>
@@ -113,21 +112,6 @@ var MapContainer = () => {
   const [isDrawingEnabled, setIsDrawingEnabled] = useState(false);
   const [distanceInfo, setDistanceInfo] = useState(null);
   const clickLineRef = useRef(null);
-=======
-      <ul class="dotOverlay distanceInfo">
-        <li><span class="label">총거리</span><span class="number">${distance}</span>m</li>
-        <li><span class="label">도보</span>${walkHour}${walkMin}</li>
-      </ul>
-    `;
-  return content;
-};
-
-const MapContainer = () => {
-  const [searchKeyword, setSearchKeyword] = useState("");
-  const [map, setMap] = useState(null);
-  const [kakao, setKakao] = useState(null);
-  const [infowindow, setInfowindow] = useState(null);
->>>>>>> 62b47b73e700fc37dcf94a07dc31b2ab85c4ce7c
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -135,29 +119,14 @@ const MapContainer = () => {
       "//dapi.kakao.com/v2/maps/sdk.js?appkey=5d5ff9dea154c6d5d695bc6a31aead6e&libraries=services&autoload=false";
     script.async = true;
     script.onload = () => {
-<<<<<<< HEAD
       const { kakao } = window;
       kakao.maps.load(() => {
-=======
-      window.kakao.maps.load(() => {
-        const { kakao } = window;
-        setKakao(kakao);
-
->>>>>>> 62b47b73e700fc37dcf94a07dc31b2ab85c4ce7c
         const container = document.getElementById("map");
         const options = {
           center: new kakao.maps.LatLng(37.5665, 126.978),
           level: 3,
         };
-<<<<<<< HEAD
         var map = new kakao.maps.Map(container, options);
-=======
-        const map = new kakao.maps.Map(container, options);
-        setMap(map);
-
-        const infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
-        setInfowindow(infowindow);
->>>>>>> 62b47b73e700fc37dcf94a07dc31b2ab85c4ce7c
 
         let drawingFlag = false;
         let moveLine, distanceOverlay;

@@ -1,12 +1,17 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-
+import { useLocation } from 'react-router-dom';
 
 function NewWalkTrail() {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  
+  const location = useLocation();
+  const { path, totalDistance, walkTime } = location.state || {};
+
   const onSubmit = (data) => {
     console.log(data);
+    console.log("Path:", path);
+    console.log("Total Distance:", totalDistance);
+    console.log("Walk Time:", walkTime);
     // 서버에 데이터를 전송하는 로직을 추가하세요.
   };
 

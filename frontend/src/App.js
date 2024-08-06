@@ -24,14 +24,17 @@ import "./asset/scss/style.scss"; // 통합 스타일 파일 import
 function App() {
   const location = useLocation();
 
+  const noHeaderPaths = ["/", "/login", "/signup", "/NewWalkTrail"];
+  const noFooterPaths = ["/map", "/NewWalkTrail"];
+
   return (
     <div className="App">
-        {location.pathname !== "/" && location.pathname !== "/login" && location.pathname !== "/signup" && <Header />}      <Routes>
+      {!noHeaderPaths.includes(location.pathname) && <Header />}
+      <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/write" element={<WritePost />} />
-        <Route path="/inquire" element={<Inquire />} />{" "}
-        {/* Add Inquire route */}
+        <Route path="/inquire" element={<Inquire />} />
         <Route path="/map" element={<MapContainer />} />
         <Route path="/person" element={<Person />} />
         <Route path="/walktrail" element={<WalkTrail />} />
@@ -45,8 +48,7 @@ function App() {
         <Route path="/QandA3" element={<QandA3 />} />
         <Route path="/QandA4" element={<QandA4 />} />
       </Routes>
-      {location.pathname !== "/map" && <Footer />}{" "}
-      {/* MapContainer가 아닌 경우 Footer 렌더링 */}
+      {!noFooterPaths.includes(location.pathname) && <Footer />}
     </div>
   );
 }

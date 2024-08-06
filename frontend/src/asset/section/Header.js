@@ -19,7 +19,7 @@ const Header = () => {
         <ul className="left-nav">
           <li>
             <Link
-              to="#"
+              to="/NewWalkTrail"
               onClick={toggleDropdown}
               className="combined-button"
             >

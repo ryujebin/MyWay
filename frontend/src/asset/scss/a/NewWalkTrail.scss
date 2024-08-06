@@ -1,43 +1,48 @@
+/* 메인 컨테이너 */
 .main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 10%; /* 위에서 패딩값을 줌 */
+  width: 80%; /* 크기를 키움 */
+  max-width: 1200px; /* 최대 너비 설정 */
+  margin: 0 auto; /* 가운데 정렬 */
 }
 
+/* 폼 */
 form {
   border: 1px solid #ccc;
-  padding: 20px;
+  padding: 30px; /* 패딩값을 키움 */
   border-radius: 5px;
-  width: 60%;
-  max-width: 600px;
+  width: 70%; /* 크기를 키움 */
+  max-width: 800px; /* 최대 너비 설정 */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
+  margin-top: 40px; /* 위에서 더 띄움 */
 }
 
 form div {
-  margin-bottom: 15px;
-  width: 100%;
+  margin-bottom: 20px; /* 간격을 더 키움 */
+  width: 95%;
 }
 
 form label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px; /* 간격을 더 키움 */
   font-weight: bold;
 }
 
 form input,
 form textarea {
-  width: 100%;
-  padding: 10px;
+  width: 100%; /* 입력 필드 너비를 100%로 설정 */
+  padding: 15px; /* 패딩값을 키움 */
   border: 1px solid #ccc;
   border-radius: 3px;
 }
 
 form button {
-  width: 100%;
-  padding: 10px;
+  width: 100%; /* 버튼 너비를 100%로 설정 */
+  padding: 15px; /* 패딩값을 키움 */
   background-color: #007bff;
   color: white;
   border: none;

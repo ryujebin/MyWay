@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import searchIcon from "./icons/search-icon.png";
 import closeIcon from "./icons/close-icon.png";
 import restroomIcon from "./icons/restroom.png";
@@ -103,6 +104,7 @@ var MapContainer = () => {
   const [searchKeyword, setSearchKeyword] = useState("");
   const clickLineRef = useRef(null);
   const infowindow = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -124,158 +126,6 @@ var MapContainer = () => {
 
         infowindow.current = new kakao.maps.InfoWindow({ zIndex: 1 });
 
-        let drawingFlag = false;
-        let moveLine, distanceOverlay;
-        let dots = [];
-
-        kakao.maps.event.addListener(map, "click", function (mouseEvent) {
-          if (!isDrawingEnabled) return;
-
-          const clickPosition = mouseEvent.latLng;
-
-          if (!drawingFlag) {
-            drawingFlag = true;
-            deleteClickLine(clickLineRef);
-            distanceOverlay = deleteDistance(distanceOverlay);
-            dots = deleteCircleDot(dots);
-
-            clickLineRef.current = new kakao.maps.Polyline({
-              map: map,
-              path: [clickPosition],
-              strokeWeight: 3,
-              strokeColor: "#db4040",
-              strokeOpacity: 1,
-              strokeStyle: "solid",
-            });
-
-            moveLine = new kakao.maps.Polyline({
-              strokeWeight: 3,
-              strokeColor: "#db4040",
-              strokeOpacity: 0.5,
-              strokeStyle: "solid",
-            });
-
-            dots = displayCircleDot(kakao, map, clickPosition, 0, dots);
-          } else if (clickLineRef.current) {
-            var path = clickLineRef.current.getPath();
-            path.push(clickPosition);
-            clickLineRef.current.setPath(path);
-
-            const distance = Math.round(clickLineRef.current.getLength());
-            dots = displayCircleDot(kakao, map, clickPosition, distance, dots);
-          }
-        });
-
-        kakao.maps.event.addListener(map, "mousemove", function (mouseEvent) {
-          if (!isDrawingEnabled || !drawingFlag || !clickLineRef.current) return;
-
-          var mousePosition = mouseEvent.latLng;
-          var path = clickLineRef.current.getPath();
-          var movepath = [path[path.length - 1], mousePosition];
-          moveLine.setPath(movepath);
-          moveLine.setMap(map);
-
-          const distance = Math.round(
-            clickLineRef.current.getLength() + moveLine.getLength()
-          );
-          const content = `<div class="dotOverlay distanceInfo">총거리 <span class="number">${distance}</span>m</div>`;
-          distanceOverlay = showDistance(
-            kakao,
-            map,
-            distanceOverlay,
-            content,
-            mousePosition
-          );
-        });
-
-        kakao.maps.event.addListener(map, "rightclick", function () {
-          if (!isDrawingEnabled || !drawingFlag) return;
-
-          moveLine.setMap(null);
-          moveLine = null;
-
-          if (clickLineRef.current) {
-            var path = clickLineRef.current.getPath();
-
-            if (path.length > 1) {
-              if (dots[dots.length - 1].distance) {
-                dots[dots.length - 1].distance.setMap(null);
-                dots[dots.length - 1].distance = null;
-              }
-
-              const distance = Math.round(clickLineRef.current.getLength());
-              const { content, walkTime } = getTimeHTML(distance);
-              distanceOverlay = showDistance(
-                kakao,
-                map,
-                distanceOverlay,
-                content,
-                path[path.length - 1]
-              );
-
-              setDistanceInfo({
-                totalDistance: distance,
-                walkTime: walkTime,
-              });
-            } else {
-              deleteClickLine(clickLineRef);
-              dots = deleteCircleDot(dots);
-              distanceOverlay = deleteDistance(distanceOverlay);
-            }
-            drawingFlag = false;
-          }
-        });
-
-        document
-          .getElementById("savePath")
-          .addEventListener("click", function () {
-            if (clickLineRef.current) {
-              const path = clickLineRef.current.getPath().map((latlng) => ({
-                lat: latlng.getLat(),
-                lng: latlng.getLng(),
-              }));
-
-              const xhr = new XMLHttpRequest();
-              xhr.open("POST", "/api/paths/save_path", true);
-              xhr.setRequestHeader("Content-Type", "application/json");
-              xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                  alert(xhr.responseText);
-                }
-              };
-              xhr.send(JSON.stringify({ path: JSON.stringify(path) }));
-            } else {
-              alert("저장할 경로가 없습니다!");
-            }
-          });
-
-        document
-          .getElementById("loadPaths")
-          .addEventListener("click", function () {
-            const xhr = new XMLHttpRequest();
-            xhr.open("GET", "/api/paths/load_paths", true);
-            xhr.onreadystatechange = function () {
-              if (xhr.readyState === 4 && xhr.status === 200) {
-                const paths = JSON.parse(xhr.responseText);
-                paths.forEach((path) => {
-                  const pathArray = JSON.parse(path).map(
-                    (coord) => new kakao.maps.LatLng(coord.lat, coord.lng)
-                  );
-                  const polyline = new kakao.maps.Polyline({
-                    map: map,
-                    path: pathArray,
-                    strokeWeight: 3,
-                    strokeColor: "#db4040",
-                    strokeOpacity: 1,
-                    strokeStyle: "solid",
-                  });
-                });
-              }
-            };
-            xhr.send();
-          });
-
-        // 예시 마커 데이터
         const positions = [
           { title: "Marker1", latlng: new kakao.maps.LatLng(37.5665, 126.978) },
           { title: "Marker2", latlng: new kakao.maps.LatLng(37.5655, 126.977) },
@@ -294,7 +144,123 @@ var MapContainer = () => {
       console.error("Kakao Maps API 스크립트를 로드하는 데 실패했습니다.");
     };
     document.head.appendChild(script);
-  }, [isDrawingEnabled]);
+  }, []);
+
+  useEffect(() => {
+    if (!kakao || !map) return;
+
+    let drawingFlag = false;
+    let moveLine, distanceOverlay;
+    let dots = [];
+
+    const clickListener = function (mouseEvent) {
+      if (!isDrawingEnabled) return;
+
+      const clickPosition = mouseEvent.latLng;
+
+      if (!drawingFlag) {
+        drawingFlag = true;
+        deleteClickLine(clickLineRef);
+        distanceOverlay = deleteDistance(distanceOverlay);
+        dots = deleteCircleDot(dots);
+
+        clickLineRef.current = new kakao.maps.Polyline({
+          map: map,
+          path: [clickPosition],
+          strokeWeight: 3,
+          strokeColor: "#db4040",
+          strokeOpacity: 1,
+          strokeStyle: "solid",
+        });
+
+        moveLine = new kakao.maps.Polyline({
+          strokeWeight: 3,
+          strokeColor: "#db4040",
+          strokeOpacity: 0.5,
+          strokeStyle: "solid",
+        });
+
+        dots = displayCircleDot(kakao, map, clickPosition, 0, dots);
+      } else if (clickLineRef.current) {
+        var path = clickLineRef.current.getPath();
+        path.push(clickPosition);
+        clickLineRef.current.setPath(path);
+
+        const distance = Math.round(clickLineRef.current.getLength());
+        dots = displayCircleDot(kakao, map, clickPosition, distance, dots);
+      }
+    };
+
+    const moveListener = function (mouseEvent) {
+      if (!isDrawingEnabled || !drawingFlag || !clickLineRef.current) return;
+
+      var mousePosition = mouseEvent.latLng;
+      var path = clickLineRef.current.getPath();
+      var movepath = [path[path.length - 1], mousePosition];
+      moveLine.setPath(movepath);
+      moveLine.setMap(map);
+
+      const distance = Math.round(
+        clickLineRef.current.getLength() + moveLine.getLength()
+      );
+      const content = `<div class="dotOverlay distanceInfo">총거리 <span class="number">${distance}</span>m</div>`;
+      distanceOverlay = showDistance(
+        kakao,
+        map,
+        distanceOverlay,
+        content,
+        mousePosition
+      );
+    };
+
+    const rightClickListener = function () {
+      if (!isDrawingEnabled || !drawingFlag) return;
+
+      moveLine.setMap(null);
+      moveLine = null;
+
+      if (clickLineRef.current) {
+        var path = clickLineRef.current.getPath();
+
+        if (path.length > 1) {
+          if (dots[dots.length - 1].distance) {
+            dots[dots.length - 1].distance.setMap(null);
+            dots[dots.length - 1].distance = null;
+          }
+
+          const distance = Math.round(clickLineRef.current.getLength());
+          const { content, walkTime } = getTimeHTML(distance);
+          distanceOverlay = showDistance(
+            kakao,
+            map,
+            distanceOverlay,
+            content,
+            path[path.length - 1]
+          );
+
+          setDistanceInfo({
+            totalDistance: distance,
+            walkTime: walkTime,
+          });
+        } else {
+          deleteClickLine(clickLineRef);
+          dots = deleteCircleDot(dots);
+          distanceOverlay = deleteDistance(distanceOverlay);
+        }
+        drawingFlag = false;
+      }
+    };
+
+    kakao.maps.event.addListener(map, "click", clickListener);
+    kakao.maps.event.addListener(map, "mousemove", moveListener);
+    kakao.maps.event.addListener(map, "rightclick", rightClickListener);
+
+    return () => {
+      kakao.maps.event.removeListener(map, "click", clickListener);
+      kakao.maps.event.removeListener(map, "mousemove", moveListener);
+      kakao.maps.event.removeListener(map, "rightclick", rightClickListener);
+    };
+  }, [kakao, map, isDrawingEnabled]);
 
   const handleCategoryClick = (category) => {
     console.log(`${category} 카테고리 클릭됨`);
@@ -307,20 +273,32 @@ var MapContainer = () => {
         lng: latlng.getLng(),
       }));
 
-      const xhr = new XMLHttpRequest();
-      xhr.open("POST", "/api/paths/save_path", true);
-      xhr.setRequestHeader("Content-Type", "application/json");
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          alert(xhr.responseText);
-        }
-      };
-      xhr.send(JSON.stringify({ path: JSON.stringify(path) }));
-
+      console.log("Path:", path);
       if (distanceInfo) {
         console.log("totalDistance:", distanceInfo.totalDistance, "m");
         console.log("walkTime:", distanceInfo.walkTime);
       }
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://localhost:5000/api/paths/save_path", true); // 수정된 포트 번호
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            alert(xhr.responseText);
+            navigate("/NewWalkTrail", {
+              state: {
+                path: path,
+                totalDistance: distanceInfo?.totalDistance,
+                walkTime: distanceInfo?.walkTime,
+              },
+            });
+          } else {
+            console.error("서버 응답 오류: ", xhr.status);
+          }
+        }
+      };
+      xhr.send(JSON.stringify({ path: JSON.stringify(path) }));
     }
     setIsDrawingEnabled((prev) => !prev);
     console.log("산책로 등록 클릭됨");

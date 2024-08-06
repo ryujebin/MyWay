@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState, useRef } from "react";
 import searchIcon from "./icons/search-icon.png";
 import closeIcon from "./icons/close-icon.png";
@@ -8,6 +9,18 @@ import walkingpathIcon from "./icons/walkway.png";
 import wishlistIcon from "./icons/heart.png";
 import registerPathIcon from "./icons/start_map.png";
 import pathListIcon from "./icons/list_map.png";
+=======
+import React, { useEffect, useState } from "react";
+import searchIcon from "./icons/search-icon.png"; // 돋보기 아이콘 추가
+import closeIcon from "./icons/close-icon.png"; // x 버튼 추가
+import restroomIcon from "./icons/restroom.png"; // 화장실 아이콘 추가
+import shelterIcon from "./icons/bench.png"; // 쉼터 아이콘 추가
+import bicycleIcon from "./icons/bike.png"; // 자전거 아이콘 추가
+import walkingpathIcon from "./icons/walkway.png"; // 산책로 아이콘 추가
+import wishlistIcon from "./icons/heart.png"; // 관심목록 아이콘 추가
+import registerPathIcon from "./icons/start_map.png"; // 산책로 등록 아이콘 추가
+import pathListIcon from "./icons/list_map.png"; // 산책로 목록 아이콘 추가
+>>>>>>> 62b47b73e700fc37dcf94a07dc31b2ab85c4ce7c
 
 const deleteClickLine = (clickLineRef) => {
   if (clickLineRef.current) {
@@ -87,6 +100,7 @@ const getTimeHTML = (distance) => {
   walkMin = `<span class="number">${walkTime % 60}</span>분`;
 
   const content = `
+<<<<<<< HEAD
     <ul class="dotOverlay distanceInfo">
       <li><span class="label">총거리</span><span class="number">${distance}</span>m</li>
       <li><span class="label">도보</span>${walkHour}${walkMin}</li>
@@ -99,21 +113,51 @@ var MapContainer = () => {
   const [isDrawingEnabled, setIsDrawingEnabled] = useState(false);
   const [distanceInfo, setDistanceInfo] = useState(null);
   const clickLineRef = useRef(null);
+=======
+      <ul class="dotOverlay distanceInfo">
+        <li><span class="label">총거리</span><span class="number">${distance}</span>m</li>
+        <li><span class="label">도보</span>${walkHour}${walkMin}</li>
+      </ul>
+    `;
+  return content;
+};
+
+const MapContainer = () => {
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const [map, setMap] = useState(null);
+  const [kakao, setKakao] = useState(null);
+  const [infowindow, setInfowindow] = useState(null);
+>>>>>>> 62b47b73e700fc37dcf94a07dc31b2ab85c4ce7c
 
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
-      "//dapi.kakao.com/v2/maps/sdk.js?appkey=5d5ff9dea154c6d5d695bc6a31aead6e&autoload=false";
+      "//dapi.kakao.com/v2/maps/sdk.js?appkey=5d5ff9dea154c6d5d695bc6a31aead6e&libraries=services&autoload=false";
     script.async = true;
     script.onload = () => {
+<<<<<<< HEAD
       const { kakao } = window;
       kakao.maps.load(() => {
+=======
+      window.kakao.maps.load(() => {
+        const { kakao } = window;
+        setKakao(kakao);
+
+>>>>>>> 62b47b73e700fc37dcf94a07dc31b2ab85c4ce7c
         const container = document.getElementById("map");
         const options = {
           center: new kakao.maps.LatLng(37.5665, 126.978),
           level: 3,
         };
+<<<<<<< HEAD
         var map = new kakao.maps.Map(container, options);
+=======
+        const map = new kakao.maps.Map(container, options);
+        setMap(map);
+
+        const infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
+        setInfowindow(infowindow);
+>>>>>>> 62b47b73e700fc37dcf94a07dc31b2ab85c4ce7c
 
         let drawingFlag = false;
         let moveLine, distanceOverlay;
@@ -321,6 +365,43 @@ var MapContainer = () => {
     console.log("산책로 목록 클릭됨");
   };
 
+  const handleSearchChange = (e) => {
+    setSearchKeyword(e.target.value);
+  };
+
+  const handleSearchSubmit = () => {
+    if (!kakao || !map) return;
+
+    const ps = new kakao.maps.services.Places();
+
+    ps.keywordSearch(searchKeyword, (data, status, pagination) => {
+      if (status === kakao.maps.services.Status.OK) {
+        const bounds = new kakao.maps.LatLngBounds();
+
+        for (let i = 0; i < data.length; i++) {
+          displayMarker(data[i]);
+          bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+        }
+
+        map.setBounds(bounds);
+      }
+    });
+  };
+
+  const displayMarker = (place) => {
+    const marker = new kakao.maps.Marker({
+      map: map,
+      position: new kakao.maps.LatLng(place.y, place.x),
+    });
+
+    kakao.maps.event.addListener(marker, "click", function () {
+      infowindow.setContent(
+        `<div style="padding:5px;font-size:12px;">${place.place_name}</div>`
+      );
+      infowindow.open(map, marker);
+    });
+  };
+
   return (
     <div style={{ width: "100%", height: "100vh", position: "relative" }}>
       <div className="search-container">
@@ -330,8 +411,16 @@ var MapContainer = () => {
             type="text"
             className="search-input"
             placeholder="검색어를 입력하세요."
+            value={searchKeyword}
+            onChange={handleSearchChange}
           />
-          <img src={closeIcon} alt="close" className="close-icon" />
+          <img
+            src={closeIcon}
+            alt="close"
+            className="close-icon"
+            onClick={() => setSearchKeyword("")}
+          />
+          <button onClick={handleSearchSubmit}>검색</button>
         </div>
         <div className="category-container">
           <button

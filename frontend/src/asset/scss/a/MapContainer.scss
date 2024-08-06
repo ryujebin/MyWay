@@ -16,7 +16,7 @@ $font-size-large: 14px;
 $category-btn-width: 93px;
 $category-btn-height: 40px;
 
-// 검색 컨테이너 스타일
+// 검색 컨테이너
 .search-container {
   position: absolute;
   top: 10px;
@@ -65,6 +65,22 @@ $category-btn-height: 40px;
       height: 100%;
       box-sizing: border-box;
     }
+
+    button {
+      background-color: $category-active-bg-color;
+      color: $button-hover-color;
+      border: none;
+      border-radius: 12px;
+      padding: 0 15px;
+      height: 38px;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+
+      &:hover {
+        background-color: darken($category-active-bg-color, 10%);
+      }
+    }
   }
 
   .category-container {
@@ -105,7 +121,7 @@ $category-btn-height: 40px;
   }
 }
 
-// 기타 버튼 스타일
+// 기타 버튼들
 .bottom-container {
   position: absolute;
   bottom: 20px;
@@ -151,7 +167,7 @@ $category-btn-height: 40px;
   }
 }
 
-// 거리 표시 스타일
+// 거리 표시
 .dot {
   overflow: hidden;
   float: left;
@@ -206,7 +222,6 @@ $category-btn-height: 40px;
   }
 }
 
-// 경로 상세 정보 스타일
 .path-details {
   position: absolute;
   bottom: 80px;

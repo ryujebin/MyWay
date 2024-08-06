@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import searchIcon from "./icons/search-icon.png"; // 돋보기 아이콘 추가
 import closeIcon from "./icons/close-icon.png"; // x 버튼 추가
 import restroomIcon from "./icons/restroom.png"; // 화장실 아이콘 추가
@@ -96,20 +96,31 @@ const getTimeHTML = (distance) => {
 };
 
 const MapContainer = () => {
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const [map, setMap] = useState(null);
+  const [kakao, setKakao] = useState(null);
+  const [infowindow, setInfowindow] = useState(null);
+
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
-      "//dapi.kakao.com/v2/maps/sdk.js?appkey=5d5ff9dea154c6d5d695bc6a31aead6e&autoload=false";
+      "//dapi.kakao.com/v2/maps/sdk.js?appkey=5d5ff9dea154c6d5d695bc6a31aead6e&libraries=services&autoload=false";
     script.async = true;
     script.onload = () => {
       window.kakao.maps.load(() => {
         const { kakao } = window;
+        setKakao(kakao);
+
         const container = document.getElementById("map");
         const options = {
           center: new kakao.maps.LatLng(37.5665, 126.978),
           level: 3,
         };
         const map = new kakao.maps.Map(container, options);
+        setMap(map);
+
+        const infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
+        setInfowindow(infowindow);
 
         // Drawing Path Variables
         let drawingFlag = false;
@@ -288,6 +299,43 @@ const MapContainer = () => {
     console.log("산책로 목록 클릭됨");
   };
 
+  const handleSearchChange = (e) => {
+    setSearchKeyword(e.target.value);
+  };
+
+  const handleSearchSubmit = () => {
+    if (!kakao || !map) return;
+
+    const ps = new kakao.maps.services.Places();
+
+    ps.keywordSearch(searchKeyword, (data, status, pagination) => {
+      if (status === kakao.maps.services.Status.OK) {
+        const bounds = new kakao.maps.LatLngBounds();
+
+        for (let i = 0; i < data.length; i++) {
+          displayMarker(data[i]);
+          bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+        }
+
+        map.setBounds(bounds);
+      }
+    });
+  };
+
+  const displayMarker = (place) => {
+    const marker = new kakao.maps.Marker({
+      map: map,
+      position: new kakao.maps.LatLng(place.y, place.x),
+    });
+
+    kakao.maps.event.addListener(marker, "click", function () {
+      infowindow.setContent(
+        `<div style="padding:5px;font-size:12px;">${place.place_name}</div>`
+      );
+      infowindow.open(map, marker);
+    });
+  };
+
   return (
     <div style={{ width: "100%", height: "100vh", position: "relative" }}>
       <div className="search-container">
@@ -297,8 +345,16 @@ const MapContainer = () => {
             type="text"
             className="search-input"
             placeholder="검색어를 입력하세요."
+            value={searchKeyword}
+            onChange={handleSearchChange}
           />
-          <img src={closeIcon} alt="close" className="close-icon" />
+          <img
+            src={closeIcon}
+            alt="close"
+            className="close-icon"
+            onClick={() => setSearchKeyword("")}
+          />
+          <button onClick={handleSearchSubmit}>검색</button>
         </div>
         <div className="category-container">
           <button

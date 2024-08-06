@@ -9,13 +9,11 @@ function Login() {
   const [password, setPassword] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   
-
   const handleSignUpClick = () => {
     navigate("/signup");
   };
 
   const handleLoginClick = async () => {
-
     // 모든 필드가 입력되었는지 확인
     if (!userid || !password) {
       setErrorMessage('정보를 정확하게 입력해주시길 바랍니다.');
@@ -23,10 +21,10 @@ function Login() {
     }
 
     let response;
-    
+
     // 로그인 요청
     try {
-      response = await axios.post('https://www.mywayapp.uk/:5000/api/users/login', {
+      response = await axios.post('https://port-0-mywayserver-lyyh5r055f71ecd6.sel4.cloudtype.app:5000/api/users/login', {
         userid,
         password,
       }, {
@@ -43,6 +41,11 @@ function Login() {
       // 필요 시 입력 필드 초기화
       setUserId('');
       setPassword('');
+
+      // 로그인 성공 후 페이지 이동
+      if (response.status === 200) {
+        navigate('/');
+      }
     } catch (error) {
       console.error('Error during login:', error.response ? error.response.data : error.message);
       // 에러 처리
@@ -53,9 +56,6 @@ function Login() {
         // 다른 에러 발생
         setErrorMessage('로그인에 실패했습니다. 다시 시도해주세요.');
       }
-    }
-    if (response.status === 200) {
-      navigate('/');
     }
   };
 
@@ -102,7 +102,7 @@ function Login() {
             <button className="footer-button">비밀번호 찾기</button>
           </div>
           {errorMessage && <div className="error-message">{errorMessage}</div>}
-          {successMessage && <div className="error-message">{successMessage}</div>}
+          {successMessage && <div className="success-message">{successMessage}</div>} {/* 수정: successMessage의 CSS 클래스 변경 */}
         </main>
       </div>
     </div>

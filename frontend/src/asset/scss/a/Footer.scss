@@ -1,0 +1,117 @@
+.footer {
+  font-family: 'Gothic A1', sans-serif;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 150px;
+
+  .footer-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    .footer-column {
+      width: 16%;
+      padding: 0 10px;
+
+      h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          margin-bottom: 5px;
+          line-height: 1.5;
+
+          a {
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+            display: block;
+          }
+        }
+      }
+    }
+
+    .footer-logo {
+      .logo {
+        font-family: Rubik;
+        margin-bottom: 15px;
+        a {
+          font-size: 50px;
+          font-weight: bold;
+          background: linear-gradient(to right, #5555ff, #11ffff);
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+      }
+      img {
+        max-width: 150px;
+        margin-bottom: 10px;
+      }
+
+      .footer-app-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+
+        a {
+          text-decoration: none;
+          color: black;
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          img {
+            width: 32px;
+            height: 32px;
+          }
+
+          .youtube-button {
+            margin-left: 0;
+          }
+
+          .producer-button {
+            background-color: black;
+            color: white;
+            padding: 2.5px 10px;
+            border-radius: 15px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            line-height: 27px;
+            height: 27px;
+            margin-left: 0;
+          }
+
+          &::before {
+            content: "•";
+            color: transparent;
+          }
+        }
+      }
+    }
+  }
+
+  .copyright {
+    text-align: center;
+    margin-top: auto;
+    font-size: 14px;
+    color: gray;
+  }
+}

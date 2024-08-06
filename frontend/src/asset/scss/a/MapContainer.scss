@@ -1,0 +1,264 @@
+// 변수 정의
+$search-bg-color: #f4f4f4;
+$border-color: #ddd;
+$category-bg-color: #ffffff;
+$category-active-bg-color: #007bff;
+$text-color: #007bff;
+$button-hover-bg-color: #007bff;
+$button-hover-color: #fff;
+$dot-size: 12px;
+$overlay-bg-color: #fff;
+$overlay-border-color: #ccc;
+$overlay-shadow-color: #888;
+$font-size-small: 12px;
+$font-size-medium: 16px;
+$font-size-large: 14px;
+$category-btn-width: 93px;
+$category-btn-height: 40px;
+
+// 검색 컨테이너
+.search-container {
+  font-family: 'Gothic A1', sans-serif;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 20px;
+  padding: 20px;
+  width: 90%;
+  max-width: 700px;
+  z-index: 10;
+
+  .search-input-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: $search-bg-color;
+    border: 1px solid $border-color;
+    border-radius: 12px;
+    padding: 0 10px;
+    width: 100%;
+    height: 58px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+
+    .search-icon,
+    .close-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .search-icon {
+      margin-right: 10px;
+    }
+
+    .close-icon {
+      margin-left: auto;
+      cursor: pointer;
+    }
+
+    .search-input {
+      flex: 1;
+      border: none;
+      background: none;
+      font-size: $font-size-medium;
+      outline: none;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: $category-active-bg-color;
+      color: $button-hover-color;
+      border: none;
+      border-radius: 12px;
+      padding: 0 15px;
+      height: 38px;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+
+      &:hover {
+        background-color: darken($category-active-bg-color, 10%);
+      }
+    }
+  }
+
+  .category-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    .category-btn {
+      display: flex;
+      align-items: center;
+      padding: 5px 10px;
+      background-color: $category-bg-color;
+      border: 1px solid $border-color;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      flex: 1;
+      justify-content: center;
+      margin: 0 5px;
+      width: $category-btn-width;
+      height: $category-btn-height;
+
+      img {
+        margin-right: 10px;
+        width: 25px;
+        height: 25px;
+      }
+
+      &.on {
+        background-color: $category-active-bg-color;
+        color: $overlay-bg-color;
+      }
+    }
+  }
+}
+
+// 기타 버튼들
+.bottom-container {
+  font-family: 'Gothic A1', sans-serif;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 1); /* 흰색으로 변경 */
+  z-index: 10;
+  display: flex;
+  flex-direction: column; /* 수직 정렬 */
+  align-items: flex-start; /* 왼쪽 정렬 */
+  padding: 10px; /* 여백 추가 */
+  border-radius: 10px; /* 둥근 모서리 추가 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 그림자 추가 */
+
+  .bottom-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0); /* 버튼을 투명색으로 변경 */
+    border: none; /* border 없애기 */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: none; /* 버튼의 그림자 없애기 */
+    justify-content: flex-start; /* 버튼 내용 왼쪽 정렬 */
+    width: 100%; /* 버튼을 컨테이너 너비로 확장 */
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
+    &.on {
+      background-color: $category-active-bg-color;
+      color: $overlay-bg-color;
+    }
+  }
+
+  .bottom-btn img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// 거리 표시
+.dot {
+  font-family: 'Gothic A1', sans-serif;
+  overflow: hidden;
+  float: left;
+  width: $dot-size;
+  height: $dot-size;
+  background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/mini_circle.png");
+}
+
+.dotOverlay {
+  font-family: 'Gothic A1', sans-serif;
+  position: relative;
+  bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid $overlay-border-color;
+  border-bottom: 2px solid $border-color;
+  float: left;
+  font-size: $font-size-small;
+  padding: 5px;
+  background: $overlay-bg-color;
+
+  &:nth-of-type(n) {
+    border: 0;
+    box-shadow: 0px 1px 2px $overlay-shadow-color;
+  }
+
+  .number {
+    font-weight: bold;
+    color: #ee6152;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    margin-left: -6px;
+    left: 50%;
+    bottom: -8px;
+    width: 11px;
+    height: 8px;
+    background: url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white_small.png");
+  }
+
+  .distanceInfo {
+    position: relative;
+    top: 5px;
+    left: 5px;
+    list-style: none;
+    margin: 0;
+
+    .label {
+      display: inline-block;
+      width: 50px;
+    }
+  }
+}
+
+.path-details {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .path-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  .path-info {
+    flex: 1;
+
+    h3 {
+      margin: 0 0 10px;
+    }
+
+    p {
+      margin: 0;
+      color: #666;
+    }
+  }
+}

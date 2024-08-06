@@ -93,7 +93,7 @@ const getTimeHTML = (distance) => {
       <li><span class="label">도보</span>${walkHour}${walkMin}</li>
     </ul>
   `;
-  return { content, walkTime };
+  return { content, finishtime: walkTime };
 };
 
 var MapContainer = () => {
@@ -229,7 +229,7 @@ var MapContainer = () => {
           }
 
           const distance = Math.round(clickLineRef.current.getLength());
-          const { content, walkTime } = getTimeHTML(distance);
+          const { content, finishtime } = getTimeHTML(distance);
           distanceOverlay = showDistance(
             kakao,
             map,
@@ -239,8 +239,8 @@ var MapContainer = () => {
           );
 
           setDistanceInfo({
-            totalDistance: distance,
-            walkTime: walkTime,
+            distance: distance,
+            finishtime: finishtime,
           });
         } else {
           deleteClickLine(clickLineRef);
@@ -275,8 +275,8 @@ var MapContainer = () => {
 
       console.log("Path:", path);
       if (distanceInfo) {
-        console.log("totalDistance:", distanceInfo.totalDistance);
-        console.log("walkTime:", distanceInfo.walkTime);
+        console.log("distance:", distanceInfo.distance);
+        console.log("finishtime:", distanceInfo.finishtime);
       }
 
       const xhr = new XMLHttpRequest();
@@ -288,8 +288,8 @@ var MapContainer = () => {
             navigate("/NewWalkTrail", {
               state: {
                 path: path,
-                totalDistance: distanceInfo?.totalDistance,
-                walkTime: distanceInfo?.walkTime,
+                distance: distanceInfo?.distance,
+                finishtime: distanceInfo?.finishtime,
               },
             });
           } else {

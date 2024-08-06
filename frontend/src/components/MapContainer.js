@@ -167,7 +167,8 @@ var MapContainer = () => {
         });
 
         kakao.maps.event.addListener(map, "mousemove", function (mouseEvent) {
-          if (!isDrawingEnabled || !drawingFlag || !clickLineRef.current) return;
+          if (!isDrawingEnabled || !drawingFlag || !clickLineRef.current)
+            return;
 
           var mousePosition = mouseEvent.latLng;
           var path = clickLineRef.current.getPath();

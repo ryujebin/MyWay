@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "./CommunityPage.css";
+import image from "./images/community.PNG";
+import logo from "./images/logo.PNG";
 import bannerImage from "./images/banner.PNG";
-
+import mypageIcon from "./images/mypage.PNG";
+import googlePlay from "./images/googleplay.PNG";
+import appStore from "./images/appstore.PNG";
+import instagram from "./images/instagram.PNG";
+import youtube from "./images/youtube.PNG";
 
 const CommunityPage = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("notice");
-  const [expandedIndex, setExpandedIndex] = useState(null);
+  const [expandedIndex, setExpandedIndex] = useState(null); // State to manage which item is expanded.
   const [searchTerm, setSearchTerm] = useState("");
 
   const toggleDropdown = () => {
@@ -23,7 +30,7 @@ const CommunityPage = () => {
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
-    setExpandedIndex(null);
+    setExpandedIndex(null); // Reset expanded index when changing tabs
   };
 
   const handleSearchChange = (event) => {
@@ -36,10 +43,49 @@ const CommunityPage = () => {
 
   return (
     <div className="community-page">
-      <section class="banner-bar">
-        <h1 className='banner-words'>' 산책이 일상으로 '</h1>
-        <span class="mypage">COMMUNITY</span>
-      </section>
+      <header className="header">
+        <div className="left-container">
+          <Link to="/" className="logo">
+            <img src={logo} alt="MyWay Logo" />
+          </Link>
+          <nav className="nav-container">
+            <ul className="nav-links">
+              <li
+                className="dropdown"
+                onMouseEnter={toggleDropdown}
+                onMouseLeave={toggleDropdown}
+              >
+                <a href="#!">
+                  산책로 <span className="arrow">v</span>
+                </a>
+                {dropdownOpen && (
+                  <ul className="dropdown-menu">
+                    <li>
+                      <a href="#!">산책로</a>
+                    </li>
+                    <li>
+                      <a href="#!">산책로 등록</a>
+                    </li>
+                    <li>
+                      <a href="#!">산책로 관리</a>
+                    </li>
+                  </ul>
+                )}
+              </li>
+              <li>
+                <Link to="/community">커뮤니티</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <Link to="/mypage" className="mypage-button">
+          <img src={mypageIcon} alt="마이페이지" className="mypage-icon" />
+          <span>마이페이지</span>
+        </Link>
+      </header>
+      <div className="banner">
+        <img src={bannerImage} alt="산책이 일상으로" className="banner-image" />
+      </div>
       <div className="community-content">
         <div className="tabs">
           <ul>
@@ -92,7 +138,7 @@ const CommunityPage = () => {
           {activeTab === "notice" && (
             <div className="notice-content">
               <div className="notice-item" onClick={() => toggleExpanded(0)}>
-                <p className="notice-title">산책하Go! 기부하Go! 산책 챌린지</p>
+                <p>산책하Go! 기부하Go! 산책 챌린지</p>
                 <span className="views">조회수: 1234</span>
               </div>
               {expandedIndex === 0 && (
@@ -104,7 +150,7 @@ const CommunityPage = () => {
                 </div>
               )}
               <div className="notice-item" onClick={() => toggleExpanded(1)}>
-                <p className="notice-title">[대회일정] 순천시 남승룡 마라톤 대회 참여자 모집</p>
+                <p>[대회일정] 순천시 남승룡 마라톤 대회 참여자 모집</p>
                 <span className="views">조회수: 5678</span>
               </div>
               {expandedIndex === 1 && (
@@ -116,7 +162,7 @@ const CommunityPage = () => {
                 </div>
               )}
               <div className="notice-item" onClick={() => toggleExpanded(2)}>
-                <p className="notice-title">[대회일정] 2024 섬섬 여수 그란폰도 대회 참여자 모집</p>
+                <p>[대회일정] 2024 섬섬 여수 그란폰도 대회 참여자 모집</p>
                 <span className="views">조회수: 9101</span>
               </div>
               {expandedIndex === 2 && (
@@ -132,7 +178,7 @@ const CommunityPage = () => {
           {activeTab === "freeboard" && (
             <div className="freeboard-content">
               <div className="post-item" onClick={() => toggleExpanded(3)}>
-                <p className="post-title">새로운 산책로 발견!</p>
+                <h3>새로운 산책로 발견!</h3>
                 <span className="views">조회수: 231</span>
               </div>
               {expandedIndex === 3 && (
@@ -144,7 +190,7 @@ const CommunityPage = () => {
                 </div>
               )}
               <div className="post-item" onClick={() => toggleExpanded(4)}>
-                <p className="post-title">강아지와 함께 산책하기 좋은 곳</p>
+                <h3>강아지와 함께 산책하기 좋은 곳</h3>
                 <span className="views">조회수: 198</span>
               </div>
               {expandedIndex === 4 && (
@@ -156,7 +202,7 @@ const CommunityPage = () => {
                 </div>
               )}
               <div className="post-item" onClick={() => toggleExpanded(5)}>
-                <p className="post-title">산책로 청소 활동 후기</p>
+                <h3>산책로 청소 활동 후기</h3>
                 <span className="views">조회수: 145</span>
               </div>
               {expandedIndex === 5 && (
@@ -172,7 +218,7 @@ const CommunityPage = () => {
           {activeTab === "qa" && (
             <div className="qa-content">
               <div className="qa-item" onClick={() => toggleExpanded(6)}>
-                <p className="qa-title">새로운 산책로 등록은 어떻게 하나요?</p>
+                <h3>새로운 산책로 등록은 어떻게 하나요?</h3>
                 <span className="views">조회수: 104</span>
               </div>
               {expandedIndex === 6 && (
@@ -181,7 +227,7 @@ const CommunityPage = () => {
                 </div>
               )}
               <div className="qa-item" onClick={() => toggleExpanded(7)}>
-                <p className="qa-title">산책로 관리 방법이 궁금해요</p>
+                <h3>산책로 관리 방법이 궁금해요</h3>
                 <span className="views">조회수: 87</span>
               </div>
               {expandedIndex === 7 && (
@@ -190,7 +236,7 @@ const CommunityPage = () => {
                 </div>
               )}
               <div className="qa-item" onClick={() => toggleExpanded(8)}>
-                <p className="qa-title">산책로 안전 관련 문의</p>
+                <h3>산책로 안전 관련 문의</h3>
                 <span className="views">조회수: 123</span>
               </div>
               {expandedIndex === 8 && (
@@ -205,6 +251,112 @@ const CommunityPage = () => {
           )}
         </div>
       </div>
+      <footer className="footer">
+        <div className="footer-links">
+          <div className="footer-column footer-logo">
+            <img src={logo} alt="MyWay Logo" />
+            <div className="footer-app-links">
+              <a href="https://play.google.com/store">
+                <img src={googlePlay} alt="Google Play" />
+              </a>
+              <a href="https://www.apple.com/app-store/">
+                <img src={appStore} alt="App Store" />
+              </a>
+            </div>
+            <div className="footer-social">
+              <a href="https://instagram.com/takkk_2">
+                <img src={instagram} alt="Instagram" />
+              </a>
+              <a href="https://youtube.com" className="youtube-button">
+                <img src={youtube} alt="YouTube" />
+              </a>
+              <a href="#!" className="producer-button">
+                제작자
+              </a>
+            </div>
+          </div>
+          <div className="footer-column">
+            <h3>MyWay</h3>
+            <ul>
+              <li>
+                <a href="#!">MyWay 소개</a>
+              </li>
+              <li>
+                <a href="https://instagram.com/takkk_2">MyWay Instagram</a>
+              </li>
+              <li>
+                <a href="https://youtube.com">MyWay Youtube</a>
+              </li>
+              <li>
+                <a href="#!">MyWay Producer</a>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-column">
+            <h3>주요서비스</h3>
+            <ul>
+              <li>
+                <a href="#!">산책로</a>
+              </li>
+              <li>
+                <Link to="/community">커뮤니티</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-column">
+            <h3>제휴업체</h3>
+            <ul>
+              <li>
+                <a href="https://code01cafe.modoo.at/">코드 0.1</a>
+              </li>
+              <li>
+                <a href="https://www.siksinhot.com/P/1312124">킁킁분식</a>
+              </li>
+              <li>
+                <a href="https://map.naver.com/p/search/%EC%95%8C%ED%94%84%EC%8A%A4%EB%8B%B9%EA%B5%AC%EC%9E%A5/place/17301667?placePath=?entry=pll&from=nx&fromNxList=true&searchType=place">
+                  알프스당구장
+                </a>
+              </li>
+              <li>
+                <a href="https://map.naver.com/p/entry/place/17030596?lng=127.48645&lat=34.969181&placePath=%2Fhome&entry=plt&searchType=place">
+                  춘천거시기닭갈비
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-column">
+            <h3>지원 및 서비스</h3>
+            <ul>
+              <li>
+                <a href="/community">공지사항</a>
+              </li>
+              <li>
+                <a href="#!">고객센터</a>
+              </li>
+              <li>
+                <a href="#!">자주 묻는 질문</a>
+              </li>
+              <li>
+                <a href="#!">광고문의</a>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-column">
+            <h3>개인정보처리방침</h3>
+            <ul>
+              <li>
+                <a href="#!">이용약관</a>
+              </li>
+              <li>
+                <a href="#!">위치기반 서비스 이용약관</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="copyright">
+          &copy; LIKELION UNIV. SCNU 12TH 워크홀릭
+        </div>
+      </footer>
     </div>
   );
 };
